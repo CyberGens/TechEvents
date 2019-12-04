@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Sponsorfiles list</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Type</th>
+                <th>Url</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sponsorFile in sponsorFiles %}
+            <tr>
+                <td><a href="{{ path('sponsorfile_show', { 'idFile': sponsorFile.idFile }) }}">{{ sponsorFile.idUser.username }}</a></td>
+                <td>{{ sponsorFile.type }}</td>
+                <td>{{ sponsorFile.url }}</td>
+                <td>{{ sponsorFile.description }}</td>
+                <td>{{ sponsorFile.status }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sponsorfile_show', { 'idFile': sponsorFile.idFile }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sponsorfile_edit', { 'idFile': sponsorFile.idFile }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sponsorfile_accept', { 'idFile': sponsorFile.idFile }) }}">accept</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sponsorfile_refuse', { 'idFile': sponsorFile.idFile }) }}">refuse</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sponsorfile_new') }}">Create a new sponsorFile</a>
+        </li>
+    </ul>
+{% endblock %}
