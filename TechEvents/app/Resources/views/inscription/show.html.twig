@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Eventname</th>
+                <td>{{ inscription.eventName }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ inscription.userName }}</td>
+            </tr>
+            <tr>
+                <th>Idinscription</th>
+                <td>{{ inscription.idInscription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('inscription_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('inscription_edit', { 'idInscription': inscription.idInscription }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+inscription_index:
+    path:     /
+    defaults: { _controller: "MainBundle:Inscription:index" }
+    methods:  GET
+
+inscription_show:
+    path:     /{idInscription}/show
+    defaults: { _controller: "MainBundle:Inscription:show" }
+    methods:  GET
+
+inscription_new:
+    path:     /new
+    defaults: { _controller: "MainBundle:Inscription:new" }
+    methods:  [GET, POST]
+
+inscription_edit:
+    path:     /{idInscription}/edit
+    defaults: { _controller: "MainBundle:Inscription:edit" }
+    methods:  [GET, POST]
+
+inscription_delete:
+    path:     /{idInscription}/delete
+    defaults: { _controller: "MainBundle:Inscription:delete" }
+    methods:  DELETE

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}}<section >
+    <div>
+        <div >
+            <h1><span>Reservations list</span></h1>
+        </div>
+    </div>
+</section>
+<section >
+
+    <div >
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th><h4 ><b>Idreservation</b></h4></th>
+                <th><h4 ><b>Iduser</b></h4></th>
+                <th><h4 ><b>Datefin</b></h4></th>
+                <th><h4 ><b>Actions</b></h4></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td><a href="{{ path('reservation_show', { 'idReservation': reservation.idReservation }) }}"><b>{{ reservation.idReservation }}</b></a></td>
+                <td><b>{{ reservation.idUser }}</b></td>
+                <td><b>{% if reservation.dateFin %}{{ reservation.dateFin|date('Y-m-d') }}{% endif %}</b></td>
+                <td>
+
+                    <div class="text-center">
+                        <a href="{{ path('reservation_show', { 'idReservation': reservation.idReservation }) }}"><b>show</b></a>
+                        <br>
+                    <a href="{{ path('reservation_edit', { 'idReservation': reservation.idReservation }) }}"><b>edit</b></a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {% if not(isLocataire>0) %}
+        <a href="{{ path('ulocal_index') }}"><b>Create a new reservation</b></a>
+        {% else %}
+        <a href="{{ path('locataire_homepage') }}"><b>Return</b></a>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock %}

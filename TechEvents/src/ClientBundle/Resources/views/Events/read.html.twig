@@ -1,0 +1,130 @@
+{% extends "ClientBundle::base.html.twig" %}
+
+{% block javascript %}
+    {# jQuery must be available in the page by this time and block `javascript` should be after the actual
+    html of comments in DOM tree, for example right before </body> #}
+    <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+    {#{% javascripts '@FOSCommentBundle/Resources/public/js/comments.js' %}#}
+
+    {#{% endjavascripts %}#}
+{% endblock javascript %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <!-- CSS -->
+    {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    <style>
+        li{
+            display: inline;
+        }
+        .add {
+            background-color: #FFC0CB;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .add:hover {opacity: 1}
+    </style>
+    <br>
+    <h1 style="text-align: center; color: #c7254e" > {{ Event.titre }} </h1>
+    {#<table border="1">#}
+    {#<tr>#}
+    {#<td> Titre </td>#}
+    {#<td> Image </td>#}
+    {#<td> Date </td>#}
+    {#<td> Prix </td>#}
+    {#<td> Nombre Tickets</td>#}
+    {#<td> lieu </td>#}
+    {#<td> Description </td>#}
+    {#<td> Etat </td>#}
+    {#<td></td>#}
+    {#</tr>#}
+    {#<tr>#}
+    {#<td> {{ Event.titre }} </td>#}
+    {#<td><img width="" height="" src="{{ asset('images/'~ Event.image) }}" ></td>#}
+    {#<td> {{ Event.date|date("d/m/y")}} </td>#}
+    {#<td> {{ Event.prix}} </td>#}
+    {#<td> {{ Event.nbreticket }} </td>#}
+    {#<td> {{ Event.lieu }} </td>#}
+    {#<td> {{ Event.description }} </td>#}
+    {#<td> {{ Event.etat }} </td>#}
+    {#<td> {{ socialButtons() }}</td>#}
+    {#</tr>#}
+    {#</table>#}
+
+    <br>
+
+    <div style="text-align: center">
+        <img width="500" height="200" src="{{ asset('imagesEvents/'~ Event.image) }}">
+    </div>
+    <br>
+    <br>
+
+    <div class="table table-striped table-hover" >
+        <table  class="table table-striped table-hover" style="font-size:170%"  >
+            <tr style="color: #6b9311">
+                <td bgcolor="#DCDCDC" style="text-align: center"> Date </td>
+                <td bgcolor="#FAF0E6" style="text-align: center"> Prix </td>
+                <td bgcolor="#DCDCDC" style="text-align: center"> Nombre Tickets</td>
+                <td bgcolor="#FAF0E6" style="text-align: center"> lieu </td>
+                <td bgcolor="#DCDCDC" style="text-align: center"> Description </td>
+            </tr>
+            <tr>
+                <td bgcolor="#DCDCDC" style="text-align: center"> {{ Event.date|date("d/m/y")}} </td>
+                <td bgcolor="#FAF0E6" style="text-align: center"> {{ Event.prix}} </td>
+                <td bgcolor="#DCDCDC" style="text-align: center"> {{ Event.nbreticket }} </td>
+                <td bgcolor="#FAF0E6" style="text-align: center"> {{ Event.lieu }} </td>
+                <td bgcolor="#DCDCDC" style="text-align: center"> {{ Event.description }} </td>
+            </tr>
+        </table>
+    </div>
+    {#<div bgcolor="#ddeedd"  style="color: white ; text-align: center">  <a href="{{ path('Participation',{'id':Event.id}) }}">Participer</a></div>#}
+
+    {#{% if ( Event.etat =='0') %}#}
+    {#<div bgcolor="#ddeedd"  style="color: white ; text-align: center">  <a href="{{ path('Participation',{'id':Event.id}) }}">Participer</a></div>#}
+    {#{% elseif ( Event.etat  =='1') %}#}
+    {#<div bgcolor="#ddeedd"  style="color: white ; text-align: center">  <a href="{{ path('Participation',{'id':Event.id}) }}"> Ne pas Participer</a></div>#}
+    {#{% endif %}#}
+    <div style="align-content: center">
+        {% if (x == 1 ) %}
+            <li><button class="add"><a href="{{ path('Events_update',{'id':Event.id}) }}">Mise à jour</a></button></li>
+            <li> <button class="add"> <a href="{{ path('Events_delete',{'id':Event.id}) }}">supprimer</a></button></li>
+        {% endif %}
+        {% if (  part  == 0 ) %}
+            <li>  <button class="add"> <a href="{{ path('Participation',{'id':Event.id}) }}">Participer</a></button></li>
+        {% elseif (  part  == 1) %}
+            <li>  <button class="add"><a href="{{ path('Participation',{'id':Event.id}) }}"> Annuler Participation </a></button></li>
+        {% endif %}
+
+        <li><button class="add"><a href="{{ path('read_Participants',{'id':Event.id}) }}" > Liste des participants </a></button></li>
+    </div>
+    <br>
+
+    <br>
+    <div style="align-content: center">
+        {% include '@FOSComment/Thread/async.html.twig' with {'id': Event.id} %}
+    </div>
+    <br>
+
+    <div style="align-items: center">
+        {{ socialButtons() }}
+    </div>
+    <br>
+    <br>
+
+
+    <br>
+    <br>
+
+{% endblock %}

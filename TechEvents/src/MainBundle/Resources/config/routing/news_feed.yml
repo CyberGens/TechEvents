@@ -1,0 +1,24 @@
+news_feed_index:
+    path:     /
+    defaults: { _controller: "MainBundle:News_feed:index" }
+    methods:  GET
+
+news_feed_show:
+    path:     /{idFeed}/show
+    defaults: { _controller: "MainBundle:News_feed:show" }
+    methods:  GET
+
+news_feed_new:
+    path:     /new
+    defaults: { _controller: "MainBundle:News_feed:new" }
+    methods:  [GET, POST]
+
+news_feed_edit:
+    path:     /{idFeed}/edit
+    defaults: { _controller: "MainBundle:News_feed:edit" }
+    methods:  [GET, POST]
+
+news_feed_delete:
+    path:     /{idFeed}/delete
+    defaults: { _controller: "MainBundle:News_feed:delete" }
+    methods:  DELETE

@@ -1,0 +1,12 @@
+participantslist_index:
+    path:     /
+    defaults: { _controller: "MainBundle:ParticipantsList:index" }
+    methods:  GET
+
+participantslist_show:
+    path:     /{date}/show
+    defaults: { _controller: "MainBundle:ParticipantsList:show" }
+    methods:  GET
+
+
+

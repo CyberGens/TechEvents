@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h3 class="">Vos Reclamations</h3>
+    <table class="table table-striped" border="3">
+
+        <tr>
+            <th>Nom</th> <th>Prenom</th><th>Email</th>
+            <th>Date</th><th>Text</th><th>Etat</th><th>Modifier</th>
+        {% for produit in produits %}
+            <tr>
+                <td > {{ produit.nom }}</td>
+                <td > {{ produit.prenom }}</td>
+                <td> {{ produit.email }}</td>
+                <td > {{ produit.date.format('Y-m-d') }}</td>
+                <td > {{ produit.text }}</td>
+                <td > {{ produit.etat }}</td>
+            <td><a href="{{ path('Modifierreclamation',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de modifier cet produit?')"><i class="fa fa-pencil-square-o"></i>
+            <button>Modifer</button></a></td>
+            <td>
+                {% if (produit.etat==1) %}
+                   Votre reclamation n'a pas été encore traitée
+                {% else %}
+                    <a href="{{ path('afficherr')}}">
+                        Votre reclamation a été bien traitée
+                        <button>voir les reclamations</button></a>
+                {% endif %}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <div class="product-easy">
+    <div class="container">
+
+    <div class="sap_tabs">
+                <h4 class="white-w3ls">Contact <span>Form</span></h4>
+                <div class="panel-body">
+                    <div class="alert alert-info">
+                        Please fill details to send a new Reclamation
+                    </div>
+
+                    <div class="graph">
+
+                        {{ form_start(Form) }}
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Nom</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.nom) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Prenom </label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.prenom) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.email) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-3 col-lg-3 col-sm-12">
+                                    <label>Text</label>
+                                </div>
+                                <div class="col-md-9 col-lg-9 col-sm-12">
+                                    {{ form_widget(Form.text) }}
+                                </div>
+
+                        </div>
+
+                        {#{{ form_widget((form.nom, {'attr': {'id':5}} )) }}#}
+                        {{ form_end(Form) }}
+
+                    </div>
+                    {{ form_errors(Form) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

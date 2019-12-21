@@ -1,0 +1,29 @@
+local_index:
+    path:     /
+    defaults: { _controller: "LocataireBundle:Local:index" }
+    methods:  GET
+
+local_show:
+    path:     /{idLoc}/show
+    defaults: { _controller: "LocataireBundle:Local:show" }
+    methods:  GET
+
+local_show_geo:
+    path:     /geo/{idLoc}
+    defaults: { _controller: "LocataireBundle:Local:map" }
+    methods:  GET
+
+local_new:
+    path:     /new
+    defaults: { _controller: "LocataireBundle:Local:new" }
+    methods:  [GET, POST]
+
+local_edit:
+    path:     /{idLoc}/edit
+    defaults: { _controller: "LocataireBundle:Local:edit" }
+    methods:  [GET, POST]
+
+local_delete:
+    path:     /{idLoc}/delete
+    defaults: { _controller: "LocataireBundle:Local:delete" }
+    methods:  DELETE

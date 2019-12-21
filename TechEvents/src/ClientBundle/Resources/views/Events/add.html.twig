@@ -1,0 +1,110 @@
+{% extends "ClientBundle::base.html.twig" %}
+{% block body %}
+
+<h1 style="color: #c7254e" >Veuillez introduir les informations de votre évenement SVP ! </h1>
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+
+                <div class="graph-form">
+
+                    <div class="graph">
+
+                        {{ form_start(Form) }}
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Titre</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.titre) }}
+                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Date</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.date) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Lieu</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.lieu) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Prix</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.prix) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Description </label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.description) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Image</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.image) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-sm-12">
+                                <label>Nombre de tickets</label>
+                            </div>
+                            <div class="col-md-9 col-lg-9 col-sm-12">
+                                {{ form_widget(Form.nbreticket) }}
+                            </div>
+                        </div>
+                        <div>
+                            {{ form_widget(Form.save,{'attr':{'class':'btn btn-success btn-rounded' , 'data-live-search':"true"}}) }}
+                        </div>
+
+
+                        {#{{ form_widget((form.nom, {'attr': {'id':5}} )) }}#}
+                        {{ form_end(Form) }}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+           toggle = !toggle;
+        });
+    </script>
+
+{% endblock %}
+
+

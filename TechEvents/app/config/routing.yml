@@ -1,0 +1,35 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+main:
+    resource: "@MainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+client:
+    resource: "@ClientBundle/Resources/config/routing.yml"
+    prefix:   /client
+
+Category:
+    resource: "@EshopBundle/Resources/config/routing.yml"
+    prefix:   /category
+
+eshop:
+    resource: "@EshopBundle/Resources/config/routing.yml"
+    prefix:   /pi
+locataire:
+    resource: "@LocataireBundle/Resources/config/routing.yml"
+    prefix: /locataire
+loc_user:
+    resource: "@LocataireBundle/Resources/config/user.yml"
+    prefix: /
+sponsoringbassem:
+    resource: "@SponsoringOfferBundle/Resources/config/routing.yml"
+    prefix: /sponsor

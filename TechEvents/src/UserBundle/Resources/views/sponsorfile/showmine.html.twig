@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h1>Sponsorfile</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idfile</th>
+                <td>{{ sponsorFile.idFile }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ sponsorFile.type }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ sponsorFile.url }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ sponsorFile.description }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ sponsorFile.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sponsorfile_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sponsorfile_edit', { 'idFile': sponsorFile.idFile }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    {% if sponsorFile.status=='Accepted' %}
+    <a href="{{ path('sponsorfile_pdf') }}">
+        <button>Print PDF</button>
+    </a>
+    {% endif %}
+{% endblock %}

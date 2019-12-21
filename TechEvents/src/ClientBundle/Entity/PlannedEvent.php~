@@ -1,0 +1,47 @@
+<?php
+
+namespace ClientBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PlannedEvent
+ *
+ * @ORM\Table(name="planned_event")
+ * @ORM\Entity
+ */
+class PlannedEvent
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_event", type="integer", nullable=false)
+     */
+    private $idEvent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_user", type="integer", nullable=false)
+     */
+    private $idUser;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Num_plan", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $numPlan;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Level_interest", type="integer", nullable=false)
+     */
+    private $levelInterest;
+
+
+}
+

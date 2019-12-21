@@ -1,0 +1,64 @@
+main_events:
+    resource: "@MainBundle/Resources/config/routing/events.yml"
+    prefix:   /events
+
+main_homepage:
+  path:     /
+  defaults: { _controller: MainBundle:Default:index }
+
+
+main_addevent:
+    path:     /addevent
+    defaults: { _controller: MainBundle:Events:new }
+
+main_addeventback:
+  path:     /addeventback
+  defaults: { _controller: MainBundle:Events:newback }
+
+
+main_inscevent:
+    path:     /insc
+    defaults: { _controller: MainBundle:Inscription:new }
+
+
+
+main_inscription:
+    resource: "@MainBundle/Resources/config/routing/inscription.yml"
+    prefix:   /inscription
+
+main_plan_event:
+  path:     /plan
+  defaults: { _controller: MainBundle:PlannedEvent:new }
+
+
+main_planned_event:
+  resource: "@MainBundle/Resources/config/routing/plannedevent.yml"
+  prefix:   /planned_event
+
+
+main_newsfeed:
+  resource: "@MainBundle/Resources/config/routing/news_feed.yml"
+  prefix:   /news_feed
+
+main_eventslist:
+  path:     /events
+  defaults: { _controller: MainBundle:Events:index }
+
+
+ajax_search:
+  path:      /search
+  defaults: {_controller : MainBundle:Events:search}
+
+participation_page:
+  path:     /participation
+  defaults: { _controller: "MainBundle:Inscription:affichelist" }
+
+
+
+inscription:
+    path:     /participer/{idEvent}
+    defaults: { _controller: "MainBundle:Inscription:participer" }
+
+possearch:
+  path:     /possearch
+  defaults: { _controller: "MainBundle:Events:possearch" }

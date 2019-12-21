@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Events</h1>
+    <!DOCTYPE html>
+    <html>
+
+    <!-- app/Resources/views/template.html.twig -->
+
+    <head>
+        <title>Search for an Event</title>
+    </head>
+    <body>
+    <div class="sidebar-search">
+        <div class="input-group custom-search-form">
+            <input type="text" id="search" class="form-control" placeholder="Suche...">
+        </div>
+        <!-- /input-group -->
+    </div>
+    <ul class="nav" id="side-menu">
+        <li>
+            <a href="#"> Entities<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level" id="entitiesNav">
+            </ul>
+        </li>
+    </ul>
+    </body>
+    </html>
+
+    <!-- jQuery is necessary -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                var minlength = 3;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value==$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key == 'entities') {
+                                            if (id != 'error') {
+                                                entitySelector.append('<li><a href="/daten/'+id+'">'+value+'</a></li>');
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <table>
+        <tbody>
+            <tr>
+                <th>Idevent</th>
+                <td>{{ event.idEvent }}</td>
+            </tr>
+
+            <tr>
+                <th>Name</th>
+                <td>{{ event.name }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if event.date %}{{ event.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ event.location }}</td>
+            </tr>
+            <tr>
+                <th>Maxnumber</th>
+                <td>{{ event.maxNumber }}</td>
+            </tr>
+            <tr>
+                <th>Sponsors</th>
+                <td>{{ event.sponsors }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ event.category }}</td>
+            </tr>
+            <tr>
+                <th>Finstatus</th>
+                <td>{{ event.finStatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('events_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('events_edit', { 'idEvent': event.idEvent }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

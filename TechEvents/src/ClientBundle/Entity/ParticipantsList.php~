@@ -1,0 +1,40 @@
+<?php
+
+namespace ClientBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ParticipantsList
+ *
+ * @ORM\Table(name="participants_list")
+ * @ORM\Entity
+ */
+class ParticipantsList
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $date;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_event", type="integer", nullable=false)
+     */
+    private $idEvent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Num_plan", type="integer", nullable=false)
+     */
+    private $numPlan;
+
+
+}
+

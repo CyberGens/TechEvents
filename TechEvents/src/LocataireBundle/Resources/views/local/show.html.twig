@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<section >
+    <div>
+        <div >
+            <h1><span>Local </span>{{ local.name }}</h1>
+        </div>
+    </div>
+</section>
+    <section>
+        
+    <div >
+        <div >
+            <div >
+                <div>
+                    <div >
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Name</th>
+                <td>{{ local.name }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ local.address }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ local.price }}</td>
+            </tr>
+            <tr>
+                <th>Surface</th>
+                <td>{{ local.surface }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ local.capacity }}</td>
+            </tr>
+           {% if activeuser==null %}
+            <tr>
+                <th></th>
+                <td>
+                    <b>To see the lodger info plz <a href="{{ path('fos_user_registration_register') }}">register</a></b>
+                </td>
+            </tr>
+            {% elseif local.idUser!=activeuser.id%}
+            <tr>
+                <th>Lodger full name</th>
+                <td>{{ activeuser.firstname }} {{ activeuser.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>
+                <a href="tel:{{activeuser.phoneNumber}}">{{activeuser.phoneNumber}}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td>
+                            <i class="ion-ios-email-outline">
+                            <b><a href="mailto:{{ activeuser.email }}">{{ activeuser.email }}</a></b></i>
+                </td>
+            </tr>
+            {% endif %}
+
+            <tr>
+                <th></th>
+                <td><div c>
+                        <br><br>
+                        {% if activeuser != null %}
+                    {% if activeuser.id==local.idUser %}
+                        {{ form_start(delete_form) }}
+                        <button type="submit" value="Delete"><b>Delete</b></button>
+                        {{ form_end(delete_form) }}
+                        <a href="{{ path('local_edit', { 'idLoc': local.idLoc }) }}"><b>Edit</b></a>
+                    {% else %}
+                        <a href="{{ path('reservation_new', {'local':local.idLoc})}}"><b>Book </b></a>
+                    {% endif %}
+                        {% endif %}
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <div >
+                    {% if isUser>0 %}
+                        <a href="{{ path('ulocal_index') }}"><b>Back to the list</b></a><br>
+                    {% else %}
+                        <a href="{{ path('local_index') }}"><b>Back to the list</b></a><br>
+                        <a href="{{ path('reservation_index',{ 'idLoc': local.idLoc }) }}"><b>Show this Venue's Reservation</b></a><br>
+                    {% endif %}
+                        <a href="{{ path('local_show_geo',{ 'idLoc':local.idLoc}) }}" target="_blank"><b>Show GeoLocalisation</b></a><br>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+                    </div>
+                </div>
+                <div >
+                    <div >
+                        <a href="{{asset('uploads/images/' ~  local.img) }}" class="venobox" data-gall="venue-gallery">
+                            <img src="{{asset('uploads/images/' ~  local.img) }}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    </section>
+    <!--{render(controller('LocataireBundle:Local:map',{'x':local.x,'y':local.y}))}}-->
+{% endblock %}

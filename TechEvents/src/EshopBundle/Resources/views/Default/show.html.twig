@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+<h1>Liste des produits</h1>
+
+<table border="2">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>Photo</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>ADD TO PANIER</td>
+
+    </tr>
+
+    {%for m in mod%}
+        <tr>
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td><img src="{{ asset('Uploads/images/' ~ m.file) }}" height="100px" width="250px"></td>
+            <td>{{m.Price}}</td>
+            <td>{{m.Description}}</td>
+            <td>{{m.Quantity}}</td>
+            <td><a href="{{path("eshop_addtopanierpage",{id:m.id})}}">AJouter Au PANIER</a></td>
+        </tr>
+
+    {%endfor%}
+</table>
+<br>

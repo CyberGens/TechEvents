@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>News_feed</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Eventname</th>
+                <td>{{ news_feed.eventName }}</td>
+            </tr>
+            <tr>
+                <th>Datefeed</th>
+                <td>{% if news_feed.dateFeed %}{{ news_feed.dateFeed|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Idfeed</th>
+                <td>{{ news_feed.idFeed }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('news_feed_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('news_feed_edit', { 'idFeed': news_feed.idFeed }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

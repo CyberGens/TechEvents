@@ -1,0 +1,6 @@
+sponsoring_offer_homepage:
+    path:     /
+    defaults: { _controller: SponsoringOfferBundle:Default:index }
+sponsoring_offer_recherchepage:
+    path:     /recherche
+    defaults: { _controller: SponsoringOfferBundle:SponsoringOffer:recherche }

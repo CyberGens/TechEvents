@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>List of planned Events</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Eventname</th>
+                <th>Username</th>
+                <th>Numplan</th>
+                <th>Levelinterest</th>
+                <th>Sidenote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plannedEvent in plannedEvents %}
+            <tr>
+                <td><a href="{{ path('plannedevent_show', { 'numPlan': plannedEvent.numPlan }) }}">{{ plannedEvent.eventName }}</a></td>
+                <td>{{ plannedEvent.userName }}</td>
+                <td>{{ plannedEvent.numPlan }}</td>
+                <td>{{ plannedEvent.levelInterest }}</td>
+                <td>{{ plannedEvent.sideNote }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('plannedevent_show', { 'numPlan': plannedEvent.numPlan }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('plannedevent_edit', { 'numPlan': plannedEvent.numPlan }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('plannedevent_new') }}">Create a new plannedEvent</a>
+        </li>
+    </ul>
+{% endblock %}

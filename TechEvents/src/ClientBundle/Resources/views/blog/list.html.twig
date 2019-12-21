@@ -1,0 +1,114 @@
+{% extends 'ClientBundle::base.html.twig' %}
+
+{% block body %}
+
+
+
+
+
+
+
+    <head>
+        <meta charset="UTF-8">
+
+
+
+
+        <link rel="stylesheet" href="{{ asset('user/bgcolor/css/style.css') }}">
+
+
+    </head>
+
+    <body>
+
+    <html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    </head>
+    <body>
+    <div id="gradient" />
+    </body>
+    </html>
+
+
+
+    <script  src="{{ asset('user/bgcolor/js/index.js') }}"></script>
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+        <a href="{{absolute_url(asset(''))}}app_dev.php/client/create" class="btn btn-primary">Ajouter Post</a>
+
+    </div>
+
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+
+                <th>Titre</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in blog_posts %}
+            <tr>
+
+                <td>{{ post.title }}</td>
+                <td>
+
+
+
+                   <a href="{{ path('show_blog',{'id':post.id}) }}" class="btn btn-primary btn-sm">voir</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(blog_posts) }}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

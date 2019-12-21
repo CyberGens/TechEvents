@@ -1,0 +1,103 @@
+client_homepage:
+    path:     /o
+    defaults: { _controller: ClientBundle:Default:index }
+Reclamation_homepage:
+    path:     /Reclamation
+    defaults: { _controller: ClientBundle:Reclamation:Reclamation }
+Modifierreclamation:
+    path:     /Modifierreclamation
+    defaults: { _controller: ClientBundle:Reclamation:Modifierreclamation }
+my_app_mail_homepage:
+    path:     /Mail
+    defaults: { _controller: ClientBundle:Mail:Mail }
+my_app_mail_accuse:
+    path:     /success
+    defaults: { _controller: ClientBundle:Panier:success }
+
+AddNotif_homepage:
+    path:     /notif
+    defaults: { _controller: ClientBundle:Mail:AddNotif }
+
+reclam_recherchepage:
+    path:     /recherche
+    defaults: { _controller: ClientBundle:Reclamation:recherche }
+
+club_hellopage:
+    path:     /hello/{clab}
+    defaults: { _controller: ClientBundle:Reclamation:hello }
+
+
+
+affiche_page:
+    path:     /affiche
+    defaults: { _controller: ClientBundle:Reclamation:affiche }
+
+mgilet_notifications:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications
+
+create_blog:
+    path:     /create
+    defaults: { _controller: ClientBundle:Blog:create }
+list_blog:
+    path:     /list
+    defaults: { _controller: ClientBundle:Blog:list }
+edit_blog:
+    path:     /edit
+    defaults: { _controller: ClientBundle:Blog:edit }
+delete_blog:
+    path:     /delete
+    defaults: { _controller: ClientBundle:Blog:delete }
+show_blog:
+    path:     /show
+    defaults: { _controller: ClientBundle:Blog:show }
+
+
+add_commentaire:
+    path:     /add_commentaire
+    defaults: { _controller: ClientBundle:Commentaires:add }
+
+update_commentaire:
+    path:     /update_commentaire/{id}
+    defaults: { _controller: ClientBundle:Commentaires:update }
+
+delete_commentaire:
+    path:     /delete_commentaire
+    defaults: { _controller: ClientBundle:Commentaires:delete }
+
+read_commentaire:
+    path:     /read_commentaire
+    defaults: { _controller: ClientBundle:Commentaires:read }
+
+likeComment:
+    path:     /LikeComment
+    defaults: { _controller: ClientBundle:Commentaires:likeComment}
+reclamations:
+    path:     /reclamations
+    defaults: { _controller: ClientBundle:ReclamationAdmin:reclamations }
+Deletereclamation:
+    path:     /Deletereclamation/{id}
+    defaults: { _controller: ClientBundle:ReclamationAdmin:Deletereclamation }
+AjoutRepRec_page:
+    path:     /AjoutRepRec
+    defaults: { _controller: ClientBundle:RepRecAdmin:AjoutRepRec }
+
+afficherr:
+    path:     /afficherr
+    defaults: { _controller: ClientBundle:RepRecAdmin:afficherr }
+
+adminlist_blog:
+    path:     /list
+    defaults: { _controller: ClientBundle:BlogAdmin:list }
+adminedit_blog:
+    path:     /edit
+    defaults: { _controller: ClientBundle:BlogAdmin:edit }
+admindelete_blog:
+    path:     /delete
+    defaults: { _controller: ClientBundle:BlogAdmin:delete }
+adminshow_blog:
+    path:     /show
+    defaults: { _controller: ClientBundle:BlogAdmin:show }
+
+
+

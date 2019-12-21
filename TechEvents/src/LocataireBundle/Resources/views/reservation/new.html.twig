@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block content %}
+    <section >
+    <div >
+        <div >
+    <h1>Reservation creation</h1>
+        </div>
+    </div>
+    </section>
+<section >
+
+    <div class="form">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+            <a href="{{ path('reservation_index') }}">Back to the list</a>
+    </div>
+</section>
+{% endblock %}

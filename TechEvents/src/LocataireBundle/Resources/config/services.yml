@@ -1,0 +1,4 @@
+services:
+#    locataire.example:
+#        class: LocataireBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

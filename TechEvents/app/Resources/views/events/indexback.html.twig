@@ -1,0 +1,123 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h1>List of Events</h1>
+    <!DOCTYPE html>
+    <html>
+
+    <!-- app/Resources/views/template.html.twig -->
+
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <div class="sidebar-search">
+        <div class="input-group custom-search-form">
+            <input type="text" id="search" class="form-control" placeholder="Search...">
+        </div>
+        <!-- /input-group -->
+    </div>
+    <ul class="nav" id="side-menu">
+        <li>
+            <a href="#"> Entities<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level" id="entitiesNav">
+            </ul>
+        </li>
+    </ul>
+    </body>
+    </html>
+
+    <!-- jQuery is necessary -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                var minlength = 3;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajax_search') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value==$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key == 'entities') {
+                                            if (id != 'error') {
+                                                entitySelector.append('<li><a href="/daten/'+id+'">'+value+'</a></li>');
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <table>
+        <thead>
+        <tr>
+            <th>Idevent</th>
+
+            <th>Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Maxnumber</th>
+            <th>Sponsors</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Finstatus</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for e in event %}
+            <tr>
+                <td><a href="{{ path('events_show', { 'idEvent': e.idEvent }) }}">{{ e.idEvent }}</a></td>
+
+                <td>{{ e.name }}</td>
+                <td>{% if e.date %}{{ e.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ e.location }}</td>
+                <td>{{ e.maxNumber }}</td>
+                <td>{{ e.sponsors }}</td>
+                <td>{{ e.description }}</td>
+                <td>{{ e.category }}</td>
+                <td>{{ e.finStatus }}</td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('events_show', { 'idEvent': e.idEvent }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('events_edit', { 'idEvent': e.idEvent }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('events_new') }}">Create a new event</a>
+        </li>
+    </ul>
+{% endblock %}

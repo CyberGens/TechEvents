@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<h1>Liste des produits</h1>
+
+
+<table border="2">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>Photo</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>ADD TO PANIER</td>
+
+    </tr>
+
+    {% for product in product %}
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td><img src="{{ asset('Uploads/images/' ~ product.file) }}" height="100px" width="250px"></td>
+            <td>{{product.Price}}</td>
+            <td>{{product.Description}}</td>
+            <td>{{product.Quantity}}</td>
+            {% if product.Quantity > 0  %}
+            <td><a href="{{path("eshop_addtopanierpage",{id:product.id})}}" style="background-color: green">Ajouter Au Panier</a></td>
+            {% else %}
+                <td><a href="{{path("eshop_addtopanierpage",{id:product.id})}}" style="background-color: red">Ajouter Au Panier</a></td>
+                {% endif %}
+        </tr>
+
+    {%endfor%}
+</table>
+<br>
+
+{% endblock %}

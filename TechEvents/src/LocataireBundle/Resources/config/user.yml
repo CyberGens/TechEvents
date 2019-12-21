@@ -1,0 +1,6 @@
+user_local:
+  resource: "@LocataireBundle/Resources/config/routing/localuser.yml"
+  prefix:   /locaux
+user_reservation:
+  resource: "@LocataireBundle/Resources/config/routing/reservationuser.yml"
+  prefix:   /reservation

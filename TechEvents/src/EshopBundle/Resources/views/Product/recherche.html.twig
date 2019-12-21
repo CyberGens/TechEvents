@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+
+<h3>Rechercher un produit selon le nom</h3>
+<form method="POST">
+    <label>Name:</label>
+    <input type="text" name="name"><br>
+    <input type="submit"value="Rechercher">
+</form>
+<body>
+<h1>Liste des produits</h1>
+<table border="2">
+<tr>
+    <td>id</td>
+    <td>name</td>
+    <td>Photo</td>
+    <td>Price</td>
+    <td>Description</td>
+    <td>Quantity</td>
+    <td>Supprimer</td>
+    <td>Modifier</td>
+
+
+
+</tr>
+
+{%for m in mod%}
+<tr>
+    <td>{{m.id}}</td>
+    <td>{{m.name}}</td>
+    <td><img src="{{ asset('Uploads/images/' ~ m.file) }}" height="100px" width="250px"></td>
+    <td>{{m.Price}}</td>
+    <td>{{m.Description}}</td>
+    <td>{{m.Quantity}}</td>
+    <td><a href="{{path("eshop_supprimerpage",{id:m.id})}}">Delete<a/></td>
+    <td><a href="{{path("eshop_modifierpage",{id:m.id})}}">modifier<a/></td>
+
+
+
+</tr>
+{%endfor%}
+</table>
+<button type="submit" class="btn btn-default" onclick="location.href='{{ path('eshop_listpage') }}' " title='revenir vers la liste compléte!'  >Retour</button>
+</body>
+
+{% endblock %}
+
+

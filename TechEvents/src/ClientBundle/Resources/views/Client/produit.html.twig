@@ -1,0 +1,52 @@
+{% extends 'ClientBundle::base.html.twig' %}
+
+
+{% block body %}
+
+    <div style="background-color: #30ffaa">
+        <p style="color: white">{{ Message }}</p>
+
+    </div>
+    <div style="background-color: red">
+        <p style="color: white">{{ Message1 }}</p>
+
+    </div>
+    <div class="form-body">
+
+    <div class="graph">
+        <div class="tables">
+            <h3 class="inner-tittle two"> Liste des Produits </h3>
+            <table class="table"> <thead> <tr>
+                    <th>Reference</th> <th>Nom</th>  <th>Categorie</th>
+                    <th>Prix</th><th>Description</th> <th>Image</th>  <th>Nb Jaimes</th>   </tr> </thead>
+                <tbody>
+
+                {% for produit in produit %}
+
+                    <tr >
+                        <td class="success"> {{ produit.reference }}</td>
+                        <td class="danger"> {{ produit.nom }}</td>
+                        <td class="info"> {{ produit.categorie }}</td>
+                        <td class="active"> {{ produit.prix }}Dt</td>
+                        <td class="warning"> {{ produit.description }}</td>
+                        <td class="warning"><a href="home"><img width="50px" height="50px" src="{{ asset( 'images/' ~ produit.image) }}"></a></td>
+                        <td class="active"> {{ produit.nbjaimes }}</td>
+                        <td class="info"><form method="POST" action="{{ path('ajouterlignecommande',{'idProduit':produit.id}) }}">
+                                <input type="text" name="quantite">
+
+                                <label></label>
+                                <input type="submit" value="valider">
+                            </form></td>
+
+
+                    </tr>
+                {% endfor %}
+                </tbody> </table>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

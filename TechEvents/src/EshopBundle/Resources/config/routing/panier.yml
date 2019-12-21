@@ -1,0 +1,23 @@
+panier_index:
+    path:     /index
+    defaults: { _controller: "EshopBundle:Panier:index" }
+    methods:  GET
+panier_show:
+    path:     /{id}/show
+    defaults: { _controller: "EshopBundle:Panier:show" }
+    methods:  GET
+
+panier_new:
+    path:     /new
+    defaults: { _controller: "EshopBundle:Panier:new" }
+    methods:  [GET, POST]
+
+panier_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EshopBundle:Panier:edit" }
+    methods:  [GET, POST]
+
+panier_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EshopBundle:Panier:delete" }
+    methods:  DELETE

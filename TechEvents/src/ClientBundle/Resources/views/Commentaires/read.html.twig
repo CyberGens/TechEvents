@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+{% block title %}{% endblock %}
+
+
+    <h1>Welcome to the Comments:</h1>
+<table border="1">
+    <tr>
+       <h4>Comments</h4>
+    </tr>
+    {% for commentaire in commentaires %}
+    <tr>
+        <td>{{ commentaire.id }}</td>
+        <td>{{ commentaire.contenu }}</td>
+        <td><a href="{{ path('likeComment',{'id':commentaire.id}) }}" class="item_add single-item hvr-outline-out button2">J'aime</a>
+            <span>{{ commentaire.nbjaimes }}</span> </td>
+
+        <td><a href="{{ path('update_commentaire',{'id':commentaire.id}) }}">Mise à jour</a></td>
+        <td><button><a href="{{ path('add_commentaire')}}" >add</a></button></td>
+        <td><a href="{{ path('delete_commentaire',{'id':commentaire.id}) }}">
+                <button>Supprimer</button></a></td>
+    </tr>
+{% endfor %}
+</table>
+
+
+    <!-- js -->
+    <script type="text/javascript" src="{{ asset('user/js/jquery-2.1.4.min.js') }}"></script>
+    <!-- //js -->
+    <script src="{{ asset('user/js/modernizr.custom.js') }}"></script>
+    <!-- Custom-JavaScript-File-Links -->
+    <!-- cart-js -->
+    <script src="{{ asset('user/js/minicart.min.js') }}"></script>
+    <script>
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
+
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
+    </script>
+
+    <!-- //cart-js -->
+    <!-- script for responsive tabs -->
+    <script src="{{ asset('user/js/easy-responsive-tabs.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function(event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+    <!-- //script for responsive tabs -->
+    <!-- stats -->
+    <script src="{{ asset('user/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('user/js/jquery.countup.js') }}"></script>
+    <script>
+        $('.counter').countUp();
+    </script>
+    <!-- //stats -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="{{ asset('user/js/move-top.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('user/js/jquery.easing.min.js') }}"></script>
+
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="{{ asset('user/js/bootstrap.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <center>
+        <h1>Repondre aux Reclamations</h1>
+        {{ form_start(form) }}
+        <table class="table table-striped" border="3">
+
+                <tr>
+                    <td>message*:</td><td>{{ form_widget(form.message) }}</td>
+
+                <td>
+                    {% if (test=="modify") %}
+                        <input type="submit" value="Modifier">
+                    {% else %}
+                        <input type="submit" class="btn btn-info"value="Ajouter">
+                    {% endif %}
+                </td>
+
+            </tr>
+
+        </table>
+    {{ form_end(form) }}
+{% endblock %}
+

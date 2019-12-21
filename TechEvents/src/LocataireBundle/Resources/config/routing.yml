@@ -1,0 +1,10 @@
+locataire_local:
+    resource: "@LocataireBundle/Resources/config/routing/local.yml"
+    prefix:   /local
+
+locataire_homepage:
+    path:     /
+    defaults: { _controller: LocataireBundle:Default:index }
+locataire_reservation:
+    resource: "@LocataireBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation

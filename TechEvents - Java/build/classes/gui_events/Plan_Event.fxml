@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_events.Plan_EventController">
+   <children>
+      <DatePicker id="Date_Plan" fx:id="Set_Date" layoutX="179.0" layoutY="159.0" />
+      <TextField id="p_event_name" fx:id="Event_Name" layoutX="248.0" layoutY="105.0" />
+      <ComboBox id="Interest" fx:id="Interest" layoutX="191.0" layoutY="217.0" prefWidth="150.0" />
+      <Label fx:id="Id_eve" layoutX="24.0" layoutY="109.0" text="Choose the event's name(ID)" />
+      <Label fx:id="date" layoutX="59.0" layoutY="163.0" text="Set the date" />
+      <Label layoutX="34.0" layoutY="221.0" text="How interested are you?" />
+      <CheckBox id="Reminder" fx:id="Reminder" layoutX="61.0" layoutY="319.0" mnemonicParsing="false" text="Set Reminder?" />
+      <Label fx:id="Id" layoutX="71.0" layoutY="66.0" text="Your ID" />
+      <TextField fx:id="Id_User" layoutX="193.0" layoutY="62.0" />
+      <Button fx:id="Menu_btn" layoutX="480.0" layoutY="53.0" mnemonicParsing="false" text="Main Menu" />
+      <Button fx:id="Plan_Event" layoutX="467.0" layoutY="328.0" mnemonicParsing="false" text="Plan" />
+      <Button layoutX="525.0" layoutY="328.0" mnemonicParsing="false" onAction="#ToPDF" text="PDF?" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+<?php
+
+namespace UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlackList
+ *
+ * @ORM\Table(name="black_list", indexes={@ORM\Index(name="FK_User_File", columns={"Id_user"})})
+ * @ORM\Entity
+ */
+class BlackList
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_entry", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $idEntry;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Description", type="string", length=255, nullable=false)
+     */
+    protected $description;
+
+    /**
+     * @var \User
+     *
+     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Id_user", referencedColumnName="id")
+     * })
+     */
+    protected $idUser;
+
+
+
+
+}

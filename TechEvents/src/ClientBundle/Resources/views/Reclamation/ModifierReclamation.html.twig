@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+
+    <h3 class="">Modifier Vos Reclamation </h3>
+
+
+    <div class="graph">
+
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <label>Nom</label>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                {{ form_widget(form.nom) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <label>Prenom </label>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                {{ form_widget(form.prenom) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <label>Email</label>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <label>Text</label>
+            </div>
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                {{ form_widget(form.text) }}
+            </div>
+        </div>
+
+        {#{{ form_widget((form.nom, {'attr': {'id':5}} )) }}#}
+        {{ form_end(form) }}
+
+    </div>
+
+
+
+    <h3 class="">Vos Reclamtion</h3>
+
+
+
+    <table class="table table-striped" border="3">
+
+        <tr>
+            <th>Nom</th> <th>Prenom</th><th>Email</th>
+            <th>Date</th><th>Text</th><th>Etat</th><th>Modifier</th>
+            {% for produit in produits %}
+        <tr>
+            <td > {{ produit.nom }}</td>
+            <td > {{ produit.prenom }}</td>
+            <td> {{ produit.email }}</td>
+            <td > {{ produit.date.format('Y-m-d') }}</td>
+            <td > {{ produit.text }}</td>
+            <td > {{ produit.etat }}</td>
+            <td><a href="{{ path('Modifierreclamation',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de modifier cet produit?')"><i class="fa fa-pencil-square-o"></i></a></td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

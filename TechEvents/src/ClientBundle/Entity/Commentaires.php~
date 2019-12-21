@@ -1,0 +1,61 @@
+<?php
+
+namespace ClientBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commentaires
+ *
+ * @ORM\Table(name="commentaires", indexes={@ORM\Index(name="idEvent", columns={"idEvent"}), @ORM\Index(name="iduse", columns={"iduse"})})
+ * @ORM\Entity
+ */
+class Commentaires
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idEvent", type="integer", nullable=true)
+     */
+    private $idevent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="iduse", type="integer", nullable=true)
+     */
+    private $iduse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="string", length=255, nullable=false)
+     */
+    private $contenu;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NbJaimes", type="integer", nullable=true)
+     */
+    private $nbjaimes;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=true)
+     */
+    private $date;
+
+
+}
+

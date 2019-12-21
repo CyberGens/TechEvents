@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<h3 class="">Vos Reclamations</h3>
+<table class="table table-striped" border="3">
+
+    <tr>
+        <th>Nom</th> <th>Prenom</th><th>Email</th>
+        <th>Date</th><th>Text</th><th>Etat</th><th>Modifier</th>
+        {% for produit in produits %}
+    <tr>
+        <td > {{ produit.nom }}</td>
+        <td > {{ produit.prenom }}</td>
+        <td> {{ produit.email }}</td>
+        <td > {{ produit.date.format('Y-m-d') }}</td>
+        <td > {{ produit.text }}</td>
+        <td > {{ produit.etat }}</td>
+        <td><a href="{{ path('Modifierreclamation',{'id':produit.id}) }}" onclick="return confirm('Etes vous sur de modifier cet produit?')"><i class="fa fa-pencil-square-o"></i>
+                <button>Modifer</button></a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h1>Welcome {{ app.user.username }} !</h1>
+    {% if app.user.role=='Admin' %}
+    <a href="{{ path('admin_homepage') }}">
+        <button class="btn-dark">Access Admin Space</button>
+    </a>
+    {% endif %}
+{% endblock %}

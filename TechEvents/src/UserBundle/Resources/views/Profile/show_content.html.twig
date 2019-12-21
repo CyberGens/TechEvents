@@ -1,0 +1,18 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+    <p ><img src="{{ asset('uploads/images/' ~  app.user.photo) }}" height="180" width="180"> </p>
+                </div> <div class="col-lg-3">
+                    <p><b>{{ 'Username'|trans }}</b>: {{ user.username }}</p>
+                    <p><b>{{ 'Email'|trans }}:</b> {{ user.email }}</p>
+                    <p><b>{{ 'First name'|trans }}</b>: {{ user.firstname }}</p>
+                    <p><b>{{ 'Last Name'|trans }}</b>: {{ user.lastname }}</p>
+                    <p><b>{{ 'Phone Number'|trans }}</b>: {{ user.phoneNumber }}</p>
+                    <p><b>{{ 'Address'|trans }}</b>: {{ user.address }}</p>
+                    <p><b>{{ 'Role'|trans }}</b>: {{ user.role }}</p>
+                </div></div></section>
+</div>

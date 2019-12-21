@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Participantslist</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{% if participantsList.date %}{{ participantsList.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Eventname</th>
+                <td>{{ participantsList.eventName }}</td>
+            </tr>
+            <tr>
+                <th>Numplan</th>
+                <td>{{ participantsList.numPlan }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('participantslist_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

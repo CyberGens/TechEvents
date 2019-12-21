@@ -1,0 +1,25 @@
+{% extends 'ClientBundle::base.html.twig' %}
+
+{% block body %}
+
+
+
+
+
+    <p class="list-group-item">
+
+
+
+        <a href="#" class="list-group-item list-group-item-action active">
+            POST
+        </a>
+    <p class="list-group-item"> {{ blogPost.title }}
+    </p>
+    <p class="list-group-item"> {{ blogPost.body }}
+    </p>
+    <p class="list-group-item">  <a href="{{absolute_url(asset(''))}}app_dev.php/client/list" class="btn btn-success btn-sm">retour</a>
+    </p>
+
+
+
+{% endblock %}

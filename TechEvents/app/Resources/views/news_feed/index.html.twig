@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>News_feeds</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Eventname</th>
+                <th>Datefeed</th>
+                <th>Idfeed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news_feed in news_feeds %}
+            <tr>
+                <td><a href="{{ path('news_feed_show', { 'idFeed': news_feed.idFeed }) }}">{{ news_feed.eventName }}</a></td>
+                <td>{% if news_feed.dateFeed %}{{ news_feed.dateFeed|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ news_feed.idFeed }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('news_feed_show', { 'idFeed': news_feed.idFeed }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('news_feed_edit', { 'idFeed': news_feed.idFeed }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('news_feed_new') }}">Create a new news_feed</a>
+        </li>
+    </ul>
+{% endblock %}

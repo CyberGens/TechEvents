@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<section>
+    <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0">Welcome To<br><span>Techevents</span></h1>
+        <p class="mb-4 pb-0">hellooo guys </p>
+        <a href="#about" class="about-btn scrollto">About The Event</a>
+    </div>
+</section>
+<div class="form">
+    <div class="container-fluid venue-gallery-container">
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-md-4">
+                <div class="venue-gallery">
+                    <a href="{{ path('reservation_index') }}"><b>mes reservation</b></a><br>
+                    <a href="{{ path('local_index') }}"><b>mes locaux</b></a><br>
+                    <a href="{{ path('ulocal_index') }}"><b>Voir des Locaux</b></a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+<h1>Liste des produits</h1>
+{% set flashbag_notices=app.session.flashbag.get('notice') %}
+{% if flashbag_notices is not empty  %}
+    <h2>
+<ul class="msg">
+    {% for notice in flashbag_notices %}
+    {{ notice }}
+    {% endfor %}
+</ul>
+{% endif %}
+</ul>
+    </h2>
+<button type="submit" class="btn btn-default" onclick="location.href='{{ path('eshop_recherchepage') }}' " title='Rechercher un produit selon le nom'  >Rechercher</button><br>
+<br>
+<table border="2">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>Photo</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>Supprimer</td>
+        <td>Modifier</td>
+
+
+
+    </tr>
+
+    {%for m in mod%}
+        <tr>
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td><img src="{{ asset('Uploads/images/' ~ m.file) }}" height="100px" width="250px"></td>
+            <td>{{m.Price}}</td>
+            <td>{{m.Description}}</td>
+            <td>{{m.Quantity}}</td>
+            <td><a href="{{path("eshop_supprimerpage",{id:m.id})}}">Delete<a/></td>
+            <td><a href="{{path("eshop_modifierpage",{id:m.id})}}">modifier<a/></td>
+
+
+
+        </tr>
+
+    {%endfor%}
+</table>
+<br>
+<button type="submit" class="btn btn-default" onclick="location.href='{{ path('eshop_ajoutpage') }}' " title='revenir vers ajouter!'  >Retour</button>
+
+
+
+{% endblock %}

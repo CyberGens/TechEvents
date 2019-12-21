@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ab" prefHeight="534.0" prefWidth="730.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_Com.ReclamationUSERController">
+   <children>
+      <Label layoutX="189.0" layoutY="23.0" prefHeight="47.0" prefWidth="406.0" text="Ajouter une Reclmation" textFill="#ba3131">
+         <font>
+            <Font size="38.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="94.0" prefHeight="39.0" prefWidth="114.0" text="objet" textFill="#5515df" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="Andalus" size="24.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="144.0" text="Description" textFill="#3e17ea">
+         <font>
+            <Font name="Andalus" size="24.0" />
+         </font></Label>
+      <TextField fx:id="objet" layoutX="176.0" layoutY="101.0" />
+      <TextArea fx:id="Description" layoutX="176.0" layoutY="144.0" prefHeight="47.0" prefWidth="451.0" />
+      <Button fx:id="Reclamert" layoutX="561.0" layoutY="468.0" mnemonicParsing="false" onAction="#ajoutrec" prefHeight="26.0" prefWidth="114.0" text="Reclamer" textFill="#ba0f0f">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="txtbuttonmod" layoutX="103.0" layoutY="470.0" mnemonicParsing="false" onAction="#modiferr" prefHeight="39.0" prefWidth="102.0" text="Modifier" />
+      <TableView fx:id="tablet" layoutX="176.0" layoutY="207.0" prefHeight="213.0" prefWidth="434.0">
+        <columns>
+          <TableColumn fx:id="id_Reclamationt" prefWidth="75.0" text="id_Reclamation" />
+          <TableColumn fx:id="objett" prefWidth="98.39996337890625" text="objet" />
+            <TableColumn fx:id="Descriptiont" prefWidth="116.79998779296875" text="Description" />
+            <TableColumn fx:id="etatt" prefWidth="143.99996948242188" text="etat" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnDel" layoutX="314.0" layoutY="470.0" mnemonicParsing="false" onAction="#delrec" prefHeight="39.0" prefWidth="102.0" text="Delete" />
+      <Button fx:id="id_imprimer" layoutX="601.0" layoutY="23.0" mnemonicParsing="false" onAction="#impression" prefHeight="26.0" prefWidth="102.0" text="imprimer" />
+      <Button fx:id="Recl_btn" layoutX="52.0" layoutY="207.0" mnemonicParsing="false" text="Se Reclamer" />
+      <Button fx:id="Respond_btn" layoutX="643.0" layoutY="301.0" mnemonicParsing="false" text="Respond" />
+      <Button fx:id="qst_btn" layoutX="18.0" layoutY="254.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="149.0" text="Question et Reponse" />
+      <Button fx:id="btn_back" layoutX="25.0" layoutY="24.0" mnemonicParsing="false" onAction="#delrec" prefHeight="17.0" prefWidth="72.0" text="Back" />
+   </children>
+</AnchorPane>

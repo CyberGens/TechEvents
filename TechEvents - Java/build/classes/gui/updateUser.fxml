@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateUserController">
+   <children>
+      <Label layoutX="149.0" layoutY="29.0" text="Update Account Information">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="147.0" text="First Name" />
+      <Label layoutX="57.0" layoutY="193.0" text="Last Name" />
+      <Label layoutX="57.0" layoutY="239.0" text="Password" />
+      <Label layoutX="57.0" layoutY="281.0" text="Email" />
+      <Label layoutX="57.0" layoutY="326.0" text="Date of Birth" />
+      <Label layoutX="358.0" layoutY="103.0" text="Phone" />
+      <Label layoutX="353.0" layoutY="147.0" text="Address" />
+      <Label layoutX="342.0" layoutY="231.0" text="Photo (URL)" />
+      <TextField fx:id="username" layoutX="151.0" layoutY="99.0" />
+      <TextField fx:id="firstname" layoutX="151.0" layoutY="142.0" />
+      <TextField fx:id="lastname" layoutX="151.0" layoutY="188.0" />
+      <TextField fx:id="email" layoutX="151.0" layoutY="276.0" />
+      <TextField fx:id="phone" layoutX="419.0" layoutY="100.0" />
+      <PasswordField fx:id="password" layoutX="151.0" layoutY="235.0" />
+      <DatePicker fx:id="birthdate" layoutX="151.0" layoutY="322.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextArea fx:id="address" layoutX="419.0" layoutY="142.0" prefHeight="70.0" prefWidth="149.0" />
+      <Button fx:id="btn_update" layoutX="439.0" layoutY="349.0" mnemonicParsing="false" text="Update" />
+      <Button fx:id="btn_browse" layoutX="338.0" layoutY="269.0" mnemonicParsing="false" onAction="#parcourir_image" prefHeight="25.0" prefWidth="68.0" text="Browse" />
+      <Label layoutX="58.0" layoutY="103.0" text="Username" />
+      <ImageView fx:id="image" fitHeight="129.0" fitWidth="149.0" layoutX="419.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

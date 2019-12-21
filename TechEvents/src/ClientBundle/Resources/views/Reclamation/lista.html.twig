@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <h3 class="">Les Reclamations traités</h3>
+    <table class="table table-striped" border="3">
+
+            <th>message</th>
+            {% for produit in produits %}
+            <tr>
+            <td > {{ produit.message}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

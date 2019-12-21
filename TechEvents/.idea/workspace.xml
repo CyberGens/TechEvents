@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2949189c-bd9b-4e6a-a141-9273283f6ed5" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="183044d6-3719-4596-9388-a727ec47cddb" />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/mgilet/notification-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/nomaya/social-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1TsxrWhO5KVd4tgyRdOjEWSQ5hb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bin/console" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TechEvents\app\Resources\views" />
+      <recent name="C:\wamp64\www\TechEvents\src\UserBundle" />
+      <recent name="C:\wamp64\www\TechEvents\src\UserBundle\Resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\TechEvents\app\Resources\views" />
+      <recent name="C:\wamp64\www\TechEvents\src\UserBundle\Resources\views\Default" />
+      <recent name="C:\wamp64\www\TechEvents\src\UserBundle\Resources\views\sponsorfile" />
+      <recent name="C:\wamp64\www\TechEvents\app\Resources\views\default" />
+      <recent name="C:\wamp64\www\TechEvents\src\UserBundle\Entity" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="c dump-autoload" />
+      <command value="php -d memory_limit=-1 composer.phar require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="s generate:bundle" />
+      <command value="s doctrine:mapping:import --force UserBundle annotation" />
+      <command value="s doctrine:schema:create" />
+      <command value="s generate:doctrine:entities UserBundle:SponsorFile" />
+      <command value="s generate:form UserBundle:SponsorFile" />
+      <command value="s generate:doctrine:form UserBundle:SponsorFile" />
+      <command value="s update:doctrine:form UserBundle:SponsorFile" />
+      <command value="s doctrine:generate:entities UserBundle:SponsorFile" />
+      <command value="s doctrine:generate:crud SponsorFile" />
+      <command value="s doctrine:generate:crud UserBundle:SponsorFile" />
+      <command value="s doctrine:generate:entities UserBundle:User" />
+      <command value="s doctrine:generate:form UserBundle:User" />
+      <command value="s doctrine:generate:entities UserBundle:BlackList" />
+      <command value="s doctrine:generate:form UserBundle:BlackList" />
+      <command value="s doctrine:generate:crud UserBundle:BlackList" />
+      <command value="composer require friendsofsymfony/ckeditor-bundle" />
+      <command value="app/console require friendsofsymfony/ckeditor-bundle" />
+      <command value="bin/console require friendsofsymfony/ckeditor-bundle" />
+      <command value="php /bin/console require friendsofsymfony/ckeditor-bundle" />
+      <command value="php /app/console require friendsofsymfony/ckeditor-bundle" />
+      <command value="c require &quot;friendsofsymfony/ckeditor-bundle&quot;" />
+      <command value="c require friendsofsymfony/ckeditor-bundle" />
+      <command value="php -d memory_limit=-1 /bin/console require friendsofsymfony/ckeditor-bundle" />
+      <command value="php -d memory_limit=-1 composer.phar require friendsofsymfony/ckeditor-bundle" />
+      <command value="php bin/console ckeditor:install" />
+      <command value="php bin/console assets:install web" />
+      <command value="s doctrine:generate:form UserBundle:SponsorFile" />
+      <command value="php -d memory_limit=-1 composer.phar require knplabs/knp-snappy-bundle" />
+      <command value="s generate:controller" />
+      <command value="c dum" />
+      <command value="php -d memory_limit=-1 composer.phar update" />
+      <command value="php -d memory_limit=-1 composer.phar require knplabs/knp-paginator-bundle" />
+      <command value="php -d memory_limit=-1 composer.phar update knplabs/knp-paginator-bundle" />
+      <command value="composer self-update" />
+      <command value="php -d memory_limit=-1 composer.phar update nomaya/social-bundle" />
+      <command value="c self-update" />
+      <command value="c update &quot;nomaya/social-bundle&quot;" />
+      <command value="php -d memory_limit-1 composer.phar update &quot;nomaya/social-bundle&quot;" />
+      <command value="php -d memory_limit=-1 composer.phar update &quot;nomaya/social-bundle&quot;" />
+      <command value="s schema:update --force" />
+      <command value="s server:ru" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="s cache:clear" />
+      <command value="s server:run" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2949189c-bd9b-4e6a-a141-9273283f6ed5" name="Default Changelist" comment="" />
+      <created>1574262802287</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574262802287</updated>
+      <workItem from="1574262803588" duration="373000" />
+      <workItem from="1574263416075" duration="154000" />
+      <workItem from="1574263572864" duration="12311000" />
+      <workItem from="1574323965719" duration="5798000" />
+      <workItem from="1574844608315" duration="10663000" />
+      <workItem from="1574858178879" duration="3383000" />
+      <workItem from="1574873056818" duration="1167000" />
+      <workItem from="1574928287130" duration="9738000" />
+      <workItem from="1575016067670" duration="6394000" />
+      <workItem from="1575022791916" duration="100000" />
+      <workItem from="1575274274632" duration="2881000" />
+      <workItem from="1575384752269" duration="583000" />
+      <workItem from="1575447045942" duration="26933000" />
+      <workItem from="1575494360566" duration="36882000" />
+      <workItem from="1576224996507" duration="292000" />
+      <workItem from="1576228799884" duration="1969000" />
+      <workItem from="1576935755794" duration="191000" />
+      <workItem from="1576936957266" duration="592000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,99 @@
+{% extends 'admin.html.twig' %}
+
+
+{% block content %}
+
+    <link href="{{ asset('template/css/style.css') }}" rel='stylesheet' type='text/css' />
+
+    <div class="page-container">
+        <!--/content-inner-->
+        <div class="left-content">
+            <div class="inner-content">
+
+                <div class="graph-form">
+                    <div class="tables">
+
+
+
+
+                            <table>
+                                <td>Etat: <input type="text" name="etat"></td>
+                                <td> <a href="{{ path('reclam_recherchepage') }}" onclick="return confirm('Voulez-vous chercher les reclamations ayant cet Etat?')"><i width="100px" class="fa fa-trash-o"></i>
+                                        <button class="btn btn-danger">Rechercher</button></a></td>
+                            </table>
+
+
+                                <br>
+
+                                <tr >
+                                    <h3 class="">Vos Reclamations</h3>
+                                    <table class="table table-striped" border="3">
+                                        <thead> <tr>
+
+
+
+
+
+
+
+                                            <th>Nom</th> <th>Prenom</th><th>Email</th>
+                                            <th>Date</th><th>Text</th><th>Etat</th><th>Delete</th><th>Repondre</th>
+
+                                            {% for reclamation in blog_posts %}
+
+                                        <tr>
+                                            <td > {{ reclamation.nom }}</td>
+                                            <td > {{ reclamation.prenom }}</td>
+                                            <td> {{ reclamation.email }}</td>
+                                            <td > {{ reclamation.date.format('Y-m-d') }}</td>
+                                            <td > {{ reclamation.text }}</td>
+                                            <td > {{ reclamation.etat }}</td>
+                                            <td><a href="{{ path('Deletereclamation',{'id':reclamation.id}) }}" onclick="return confirm('Etes vous sur de supprimer cet reclamation?')"><i width="100px" class="fa fa-trash-o"></i>
+                                                    <button class="btn btn-danger">Delete</button></a></td>
+                                            <td><a href="{{ path('AjoutRepRec_page',{'id_rec':reclamation.id,'iduser':reclamation.iduser.id}) }}" onclick="return confirm('Etes vous sur de Repondre à cet reclamation?')"><i width="100px" class="fa fa-trash-o"></i>
+                                                    <button  class="btn btn-success">Repondre</button></a></td>
+                                        </tr>
+                                        </thead>
+                                        {% endfor %}
+                                    </table>
+                        <div class="navigation text-center">
+                            {{ knp_pagination_render(blog_posts) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+
+        $(".head-dpdn").click(function(){
+            $.get("reclamations", function(data, status){
+                $('#notifier').html(data);
+            });
+        });
+    </script>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+
+{% endblock %}

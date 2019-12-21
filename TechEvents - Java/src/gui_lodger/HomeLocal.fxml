@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="455.0" prefWidth="701.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_lodger.HomeLocalController">
+    <stylesheets>
+        <URL value="@homelocal.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tv" layoutX="52.0" layoutY="14.0" prefHeight="408.0" prefWidth="649.0">
+         <columns>
+            <TableColumn fx:id="cid" prefWidth="45.60000765323639" text="ID" />
+            <TableColumn fx:id="cnl" prefWidth="154.40001678466797" text="Nom Local" />
+            <TableColumn fx:id="cal" prefWidth="179.20001220703125" text="Adresse" />
+            <TableColumn fx:id="cpu" prefWidth="63.20001220703125" text="Prix" />
+            <TableColumn fx:id="csl" minWidth="7.20001220703125" prefWidth="70.40005493164062" text="Surface" />
+            <TableColumn fx:id="ccl" prefWidth="91.2000732421875" text="Capacité" />
+         </columns>
+      </TableView>
+      <Button fx:id="img" layoutX="145.0" layoutY="420.0" mnemonicParsing="false" text="View Image" />
+      <Button fx:id="con" layoutX="319.0" layoutY="420.0" mnemonicParsing="false" text="View Contact" />
+      <Button fx:id="res" layoutX="472.0" layoutY="420.0" mnemonicParsing="false" text="Book" />
+      <Button fx:id="btn_back" layoutX="615.0" layoutY="420.0" mnemonicParsing="false" text="Back" />
+   </children>
+</AnchorPane>

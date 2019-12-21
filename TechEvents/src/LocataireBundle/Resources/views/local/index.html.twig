@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}<section id="intro">
+    <div >
+        <div >
+            <h1><span>Locals list</span></h1>
+        </div>
+    </div>
+</section>
+    <section>
+
+        <div >
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th><h4 ><b>Idloc</b></h4></th>
+                <th><h4 ><b>Iduser</b></h4></th>
+                <th><h4 ><b>Name</b></h4></th>
+                <th><h4 ><b>Address</b></h4></th>
+                <th><h4><b>Price</b></h4></th>
+                <th><h4 ><b>Surface</b></h4></th>
+                <th><h4 ><b>Capacity</b></h4></th>
+                <th><h4 ><b>Img</b></h4></th>
+                <th><h4 ><b>Actions</b></h4></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for local in locals %}
+            <tr>
+                <td><a href="{{ path('local_show', { 'idLoc': local.idLoc }) }}"><b>{{ local.idLoc }}</b></a></td>
+                <td width="100"><b>{{ local.idUser }}</b></td>
+                <td width="100"><b>{{ local.name }}</b></td>
+                <td width="200"><b>{{ local.address }}</b></td>
+                <td width="300"><b>{{ local.price }}</b></td>
+                <td><b>{{ local.surface }}</b></td>
+                <td width="100"><b>{{ local.capacity }}</b></td>
+                <td width="300">{% if local.img!=null %}<img src="{{ asset('uploads/images/' ~ local.img) }}"height="300" width="300">
+                {% else %}<img src="{{ asset('uploads/images/No_Image.png') }}" height="300" width="300"> {% endif %}</td>
+                <td>
+                        <div class="text-center">
+                            {% if activeuser!=null %}
+                            {% if activeuser.id==local.idUser %}
+                                {% if isUser >0 %}
+                            <a href="{{ path('ulocal_show', { 'idLoc': local.idLoc }) }}"><b>show</b></a><br>
+                                    {% else %}
+                                        <a href="{{ path('local_show', { 'idLoc': local.idLoc }) }}"><b>show</b></a><br>
+                                        {% endif %}
+                            <a href="{{ path('local_edit', { 'idLoc': local.idLoc }) }}"><b>edit</b></a>
+                            {% else %}
+                                <a href="{{ path('ulocal_show', { 'idLoc': local.idLoc}) }}"><b>show</b></a>
+                            {% endif %}
+                            {% else %}
+                                <a href="{{ path('ulocal_show', { 'idLoc': local.idLoc}) }}"><b>show</b></a>
+                                {% endif %}
+                        </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            {% if is_granted('ROLE_LOCATAIRE') %}
+            <a href="{{ path('local_new') }}"><b>Create a new local</b></a>
+            {% endif %}
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+
+
+    {#    <h1>Sponsoringoffers list</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Idoffer</th>
+                    <th>Datedebut</th>
+                    <th>Datefin</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for sponsoringOffer in sponsoringOffers %}
+                <tr>
+                    <td><a href="{{ path('sponsoringoffer_show', { 'idOffer': sponsoringOffer.idOffer }) }}">{{ sponsoringOffer.idOffer }}</a></td>
+                    <td>{% if sponsoringOffer.dateDebut %}{{ sponsoringOffer.dateDebut|date('Y-m-d') }}{% endif %}</td>
+                    <td>{% if sponsoringOffer.dateFin %}{{ sponsoringOffer.dateFin|date('Y-m-d') }}{% endif %}</td>
+                    <td>{{ sponsoringOffer.description }}</td>
+                    <td>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('sponsoringoffer_new') }}">Create a new sponsoringOffer</a>
+            </li>
+        </ul>#}
+
+
+{% block body %}
+
+    <!--==========================
+   list Spg Section
+   ============================-->
+    <section id="faq" class="wow fadeInUp">
+
+        <div class="container">
+            <table>
+                <td>Chercher par Desc: <input type="text" name="etat"></td>
+{#                <td> <a href="{{ path('sponsoringoffer_recherche') }}" onclick="return confirm('Voulez-vous chercher offre par desc?')"><i width="100px" ></i>#}
+                        <button class="btn btn-danger">Rechercher</button></a></td>
+            </table>
+            <div class="section-header">
+                <h2>List Sponsoring Offer </h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+
+
+
+
+                    <ul id="faq-list">
+                        {% for so  in sponsoringOffers %}
+
+                            <li>
+                                <div class="sponsoringOffer">Date Debut : {{ so.datedebut|date('d/m/Y') }}</div>
+                                <div class="sponsoringOffer">Date Fin : {{ so.datefin|date('d/m/Y') }}</div>
+                                <a data-toggle="collapse" class="collapsed" href="#faq1{{ so.idOffer }}">Description :
+                                    <i class="fa fa-minus-circle"></i></a>
+                                <div id="faq1{{ so.idOffer }}" class="collapse" data-parent="#faq-list">
+                                    <a href="{{ path('sponsoringoffer_edit', { 'idOffer': so.idOffer }) }}"><i
+                                                class="fa fa-edit"></i>
+                                        <a href="{{ path('sponsoringoffer_delete', { 'idOffer': so.idOffer}) }}"><i
+                                                    class="fa fa-trash"></i>
+                                        </a>
+
+                                        <p>
+                                            {{ so.description }}
+                                        </p></a>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Modal Order Form -->
+    <div id="buy-ticket-modal" class="modal fade">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Buy Tickets</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {#    <form method="POST" action="#}{#{{ path('post_about') }}#}{#">
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="date debut" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" name="date fin" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="description" placeholder="Your Email">
+                            </div>#}
+
+
+                    {# <div class="form-group">
+                         <select id="ticket-type" name="ticket-type" class="form-control">
+                             <option value="">-- Select Your Ticket Type --</option>
+                             <option value="standard-access">Standard Access</option>
+                             <option value="pro-access">Pro Access</option>
+                             <option value="premium-access">Premium Access</option>
+                         </select>
+                     </div>#}
+                    <div class="text-center">
+                        <button type="submit" class="btn">Buy Now</button>
+                    </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    </section>
+
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body {
+            background: #F5F5F5;
+            font: 18px/1.5 sans-serif;
+        }
+
+        h1, h2 {
+            line-height: 1.2;
+            margin: 0 0 .5em;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 21px;
+            margin-bottom: 1em;
+        }
+
+        p {
+            margin: 0 0 1em 0;
+        }
+
+        a {
+            color: #0000F0;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        code {
+            background: #F5F5F5;
+            max-width: 100px;
+            padding: 2px 6px;
+            word-wrap: break-word;
+        }
+
+        #wrapper {
+            background: #FFF;
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+        }
+
+        #container {
+            padding: 2em;
+        }
+
+        #welcome, #status {
+            margin-bottom: 2em;
+        }
+
+        #welcome h1 span {
+            display: block;
+            font-size: 75%;
+        }
+
+        #icon-status, #icon-book {
+            float: left;
+            height: 64px;
+            margin-right: 1em;
+            margin-top: -4px;
+            width: 64px;
+        }
+
+        #icon-book {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            #wrapper {
+                width: 80%;
+                margin: 2em auto;
+            }
+
+            #icon-book {
+                display: inline-block;
+            }
+
+            #status a, #next a {
+                display: block;
+            }
+
+            @-webkit-keyframes fade-in {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes fade-in {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            .sf-toolbar {
+                opacity: 0;
+                -webkit-animation: fade-in 1s .2s forwards;
+                animation: fade-in 1s .2s forwards;
+            }
+        }
+    </style>
+{% endblock %}

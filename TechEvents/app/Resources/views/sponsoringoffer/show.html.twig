@@ -1,0 +1,56 @@
+{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
+
+    {% block javascripts %}
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
+    {% endblock %}
+
+{% block body %}
+
+    <section id="contact" class="section-bg wow fadeInUp">
+        <section id="speakers" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header">
+
+                    <h1>Sponsoringoffer creation</h1>
+                </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>Idoffer</th>
+                <td>{{ sponsoringOffer.idOffer }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{% if sponsoringOffer.dateDebut %}{{ sponsoringOffer.dateDebut|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{% if sponsoringOffer.dateFin %}{{ sponsoringOffer.dateFin|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+
+                <th>Description</th>
+                <td>{{ sponsoringOffer.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sponsoringoffer_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('sponsoringoffer_edit', { 'idOffer': sponsoringOffer.idOffer }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+            </div>
+        </section>
+    </section>
+{% endblock %}

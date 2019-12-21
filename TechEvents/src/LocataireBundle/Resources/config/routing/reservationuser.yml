@@ -1,0 +1,18 @@
+ureservation_index:
+    path:     /
+    defaults: { _controller: "LocataireBundle:UserReservation:index" }
+    methods:  GET
+
+ureservation_show:
+    path:     /{idReservation}/show
+    defaults: { _controller: "LocataireBundle:UserReservation:show" }
+    methods:  GET
+ureservation_edit:
+    path:     /{idReservation}/edit
+    defaults: { _controller: "LocataireBundle:UserReservation:edit" }
+    methods:  [GET, POST]
+
+ureservation_delete:
+    path:     /{idReservation}/delete
+    defaults: { _controller: "LocataireBundle:UserReservation:delete" }
+    methods:  DELETE

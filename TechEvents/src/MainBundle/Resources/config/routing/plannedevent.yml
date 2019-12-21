@@ -1,0 +1,24 @@
+plannedevent_index:
+    path:     /
+    defaults: { _controller: "MainBundle:PlannedEvent:index" }
+    methods:  GET
+
+plannedevent_show:
+    path:     /{numPlan}/show
+    defaults: { _controller: "MainBundle:PlannedEvent:show" }
+    methods:  GET
+
+plannedevent_new:
+    path:     /new
+    defaults: { _controller: "MainBundle:PlannedEvent:new" }
+    methods:  [GET, POST]
+
+plannedevent_edit:
+    path:     /{numPlan}/edit
+    defaults: { _controller: "MainBundle:PlannedEvent:edit" }
+    methods:  [GET, POST]
+
+plannedevent_delete:
+    path:     /{numPlan}/delete
+    defaults: { _controller: "MainBundle:PlannedEvent:delete" }
+    methods:  DELETE

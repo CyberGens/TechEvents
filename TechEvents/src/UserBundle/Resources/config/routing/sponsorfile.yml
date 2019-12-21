@@ -1,0 +1,49 @@
+sponsorfile_index:
+    path:     /
+    defaults: { _controller: "UserBundle:SponsorFile:index" }
+    methods:  GET
+
+sponsorfile_search:
+    path:     /search
+    defaults: { _controller: "UserBundle:SponsorFile:search" }
+    methods:  GET
+
+sponsorfile_show:
+    path:     /{idFile}/show
+    defaults: { _controller: "UserBundle:SponsorFile:show" }
+    methods:  GET
+
+sponsorfile_showmine:
+    path:     /showmine
+    defaults: { _controller: "UserBundle:SponsorFile:showMine" }
+    methods:  GET
+
+sponsorfile_new:
+    path:     /new
+    defaults: { _controller: "UserBundle:SponsorFile:new" }
+    methods:  [GET, POST]
+
+sponsorfile_edit:
+    path:     /{idFile}/edit
+    defaults: { _controller: "UserBundle:SponsorFile:edit" }
+    methods:  [GET, POST]
+
+sponsorfile_delete:
+    path:     /{idFile}/delete
+    defaults: { _controller: "UserBundle:SponsorFile:delete" }
+    methods:  DELETE
+
+sponsorfile_accept:
+    path:     /{idFile}/accept
+    defaults: { _controller: "UserBundle:SponsorFile:accept" }
+    methods:  [GET, POST]
+
+sponsorfile_refuse:
+    path:     /{idFile}/refuse
+    defaults: { _controller: "UserBundle:SponsorFile:refuse" }
+    methods:  [GET, POST]
+
+sponsorfile_pdf:
+    path:     /pdf
+    defaults: { _controller: "UserBundle:SponsorFile:pdf" }
+    methods:  GET

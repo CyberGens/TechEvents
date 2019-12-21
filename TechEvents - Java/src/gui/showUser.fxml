@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="678.0" style="-fx-background-color: #00BFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ShowUserController">
+   <children>
+      <TableView fx:id="table" layoutX="163.0" layoutY="62.0" prefHeight="264.0" prefWidth="462.0" style="-fx-border-color: #000000;">
+        <columns>
+          <TableColumn fx:id="col_user" prefWidth="98.0" text="Username" />
+            <TableColumn fx:id="col_emall" prefWidth="120.0" text="Email" />
+            <TableColumn fx:id="col_birthdate" prefWidth="132.0" text="Birthdate" />
+            <TableColumn fx:id="col_phone" minWidth="0.0" prefWidth="111.0" text="Phone" />
+        </columns>
+      </TableView>
+      <Label fx:id="list" layoutX="349.0" layoutY="17.0" text="User List">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_sponsor" layoutX="31.0" layoutY="90.0" mnemonicParsing="false" onAction="#sponsor" style="-fx-border-color: #000000;" text="Show Sponsors">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_lodger" layoutX="34.0" layoutY="126.0" mnemonicParsing="false" onAction="#lodger" style="-fx-border-color: #000000;" text="Show Lodgers">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_delete" layoutX="590.0" layoutY="341.0" mnemonicParsing="false" style="-fx-border-color: #000000;" text="Delete">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_profile" layoutX="514.0" layoutY="341.0" mnemonicParsing="false" style="-fx-border-color: #000000;" text="Profile">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="search" layoutX="233.0" layoutY="341.0" onKeyPressed="#advancedSearch" style="-fx-border-color: #000000;" />
+      <Label layoutX="403.0" layoutY="345.0" text="Search">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Button fx:id="btn_welcome" layoutX="45.0" layoutY="255.0" mnemonicParsing="false" style="-fx-border-color: #000000;" text="My Profile">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_detail" layoutX="32.0" layoutY="290.0" mnemonicParsing="false" style="-fx-border-color: #000000;" text="My Application">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_applications" layoutX="23.0" layoutY="218.0" mnemonicParsing="false" style="-fx-border-color: #000000;" text="Show Applications">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btn_user" layoutX="41.0" layoutY="162.0" mnemonicParsing="false" onAction="#user" style="-fx-border-color: #000000;" text="Show Users">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

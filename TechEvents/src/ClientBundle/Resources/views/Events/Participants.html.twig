@@ -1,0 +1,62 @@
+{% extends 'ClientBundle::base.html.twig' %}
+
+
+
+{% block body %}
+    <style>
+        .add {
+            background-color: #f4511e;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .add:hover {opacity: 1}
+    </style>
+
+    <script>
+        function afficher() {
+            $('#myModal3').modal('show');
+            $('#label').text(document.getElementById("popup").name);
+            //   alert(document.getElementById("popup").name)
+
+        }
+
+
+
+
+
+    </script>
+
+    <div style="background-color: red">
+        <p style="color: white">{{ MessageEvent }}</p>
+
+    </div>
+<div class="table table-striped table-hover">
+    {#<div><button class="add"><a href="{{ path('Events_add')}}" > +    Ajouter un nouvel Evenement</a></button></div>#}
+    <h1 style="text-align: center" >Liste des Participants </h1>
+   <table  class="table table-striped table-hover" style="font-size:170%"><thead>
+       <tr>
+           <th  style="color: #DC143C ; text-align: center"    >     Participants </th>
+
+
+
+       </tr></thead>
+
+    {% for participant in participants %}
+
+       <tr>
+           <td style="text-align: center">{{ participant.getIduser() }}</td>
+       </tr>
+
+    {% endfor %}
+   </table>
+</div>
+{% endblock %}

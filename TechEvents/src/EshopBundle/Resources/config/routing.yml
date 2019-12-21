@@ -1,0 +1,43 @@
+eshop_panier:
+    resource: "@EshopBundle/Resources/config/routing/panier.yml"
+    prefix:   /panier
+eshop_addtopanierpage:
+    path:     /eshop/{id}
+    defaults: { _controller: EshopBundle:Default:product }
+eshop_homepage:
+  path:     /eshop
+  defaults: { _controller: EshopBundle:Default:index }
+eshop_ajoutpage:
+    path:     /ajout
+    defaults: { _controller: EshopBundle:Product:ajout }
+eshop_listpage:
+    path:     /list
+    defaults: { _controller: EshopBundle:Product:list }
+eshop_supprimerpage:
+    path:     /supprimer/{id}
+    defaults: { _controller: EshopBundle:Product:supprimer}
+eshop_modifierpage:
+    path:     /modifier/{id}
+    defaults: { _controller: EshopBundle:Product:modifier}
+eshop_recherchepage:
+    path:     /recherche
+    defaults: { _controller: EshopBundle:Product:recherche}
+eshop_ajoutcat:
+    path:     /ajoutcat
+    defaults: { _controller: EshopBundle:Category:new}
+
+category_index:
+    path:     /index
+    defaults: { _controller: EshopBundle:Category:index}
+category_show:
+    path:     /index/{id}
+    defaults: { _controller: EshopBundle:Category:show}
+
+category_edit:
+    path:     /edit/{id}
+    defaults: { _controller: EshopBundle:Category:edit}
+category_delete:
+    path:     /delete/{id}
+    defaults: { _controller: EshopBundle:Category:delete}
+
+

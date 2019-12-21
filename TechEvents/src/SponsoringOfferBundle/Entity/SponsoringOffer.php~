@@ -1,0 +1,47 @@
+<?php
+
+namespace SponsoringOfferBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SponsoringOffer
+ *
+ * @ORM\Table(name="sponsoring_offer", indexes={@ORM\Index(name="Id_offerSpg", columns={"Id_offer"})})
+ * @ORM\Entity
+ */
+class SponsoringOffer
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_offer", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idOffer;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut", type="date", nullable=true)
+     */
+    private $dateDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin", type="date", nullable=true)
+     */
+    private $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=500, nullable=false)
+     */
+    private $description;
+
+
+}
+

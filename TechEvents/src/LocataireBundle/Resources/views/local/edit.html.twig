@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% form_theme edit_form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block content %} <section >
+    <div >
+    <div >
+       <h1>Local edit</h1>
+    </div>
+    </div>
+                </section>
+<section >
+
+    <div >
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <div ><button type="submit" value="Edit">Edit  </button>
+    {{ form_end(edit_form) }}
+
+            {{ form_start(delete_form) }}
+            <button type="submit" value="Delete">Delete Loc</button>
+            {{ form_end(delete_form) }}
+        <a href="{{ path('local_index') }}"><b>Back to the list</b></a>
+    </div>
+    </div>
+</section>
+{% endblock %}

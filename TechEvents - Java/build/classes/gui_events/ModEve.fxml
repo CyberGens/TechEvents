@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_events.ModEveController">
+   <children>
+      
+      <Label layoutX="258.0" layoutY="31.0" text="Sign Up">
+         <font>
+         </font>
+      </Label>
+      
+      <Button fx:id="mod_button" layoutX="490.0" layoutY="352.0" mnemonicParsing="false" text="Modify" />
+      <TextField id="Name_field" fx:id="Name_field" layoutX="202.0" layoutY="30.0" />
+      <TextField id="Location_field" fx:id="location_field" layoutX="154.0" layoutY="178.0" />
+      <TextField id="Number_field" fx:id="number_field" layoutX="154.0" layoutY="235.0" />
+      <Label layoutX="44.0" layoutY="34.0" text="Choose a Name" />
+      <Label layoutX="38.0" layoutY="113.0" text="Set a Date" />
+      <Label layoutX="29.0" layoutY="182.0" text="Pick a Location" />
+      <Label layoutX="20.0" layoutY="239.0" text="The Max Number?" />
+      <Label layoutX="25.0" layoutY="295.0" text="Pick a Category" />
+      <TextArea id="Sponsor_field" fx:id="sponsor_field" layoutX="394.0" layoutY="203.0" prefHeight="114.0" prefWidth="191.0" />
+      <TextArea id="Desc_field" fx:id="desc_field" layoutX="394.0" layoutY="52.0" prefHeight="114.0" prefWidth="191.0" />
+      <TextField id="Status_field" fx:id="status_field" layoutX="142.0" layoutY="339.0" />
+      <ComboBox id="Cat_field" fx:id="cat_field" layoutX="153.0" layoutY="291.0" prefWidth="150.0" />
+      <Label layoutX="39.0" layoutY="343.0" text="Fin_Status?" />
+      <Label layoutX="314.0" layoutY="100.0" text="Description" />
+      <Label layoutX="320.0" layoutY="261.0" text="Sponsors" />
+      <CheckBox id="Demand_check" fx:id="check_field" layoutX="322.0" layoutY="326.0" mnemonicParsing="false" text="No sponsors? Start a sposoring offer demand" />
+      <DatePicker fx:id="date_field" layoutX="129.0" layoutY="109.0" />
+      <Button fx:id="Menu_btn" layoutX="394.0" layoutY="352.0" mnemonicParsing="false" text="Main Menu" />
+   </children>
+</AnchorPane>
