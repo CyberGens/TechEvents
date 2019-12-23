@@ -87,6 +87,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
@@ -149,8 +155,10 @@
       <command value="php -d memory_limit=-1 composer.phar update &quot;nomaya/social-bundle&quot;" />
       <command value="s schema:update --force" />
       <command value="s server:ru" />
-      <command value="s doctrine:schema:update --force" />
       <command value="s cache:clear" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="s cache:clear " />
+      <command value="s server:log" />
       <command value="s server:run" />
     </option>
   </component>
@@ -194,7 +202,13 @@
       <workItem from="1576228799884" duration="1969000" />
       <workItem from="1576935755794" duration="191000" />
       <workItem from="1576936957266" duration="592000" />
-      <workItem from="1576938410250" duration="248000" />
+      <workItem from="1576938410250" duration="492000" />
+      <workItem from="1577053704310" duration="562000" />
+      <workItem from="1577054317967" duration="62000" />
+      <workItem from="1577054428150" duration="695000" />
+      <workItem from="1577055227900" duration="13000" />
+      <workItem from="1577055321103" duration="2903000" />
+      <workItem from="1577088795330" duration="5596000" />
     </task>
     <servers />
   </component>

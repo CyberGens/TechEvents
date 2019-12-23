@@ -34,7 +34,7 @@ class LocalController extends Controller
 
             return $this->render('@Locataire/local/index.html.twig', array(
                 'locals' => $locals, 'activeuser' => $this->getUser(),
-                'isUser'=>strpos($request->getUri(),'/locaux')
+                'path'=>$request->getUri()
             ));
         }
 
@@ -82,7 +82,7 @@ class LocalController extends Controller
             $em->flush();
 
             return $this->redirectToRoute('local_show', array('idLoc' => $local->getIdloc(),
-                'isUser'=>strpos($request->getUri(),'/locaux')
+                'path'=>$request->getUri()
                 ));
         }
 
@@ -114,7 +114,7 @@ class LocalController extends Controller
             'local' => $local,
             'delete_form' => $deleteForm->createView(),
             'activeuser'=>$this->getUser(),
-            'isUser'=>strpos($request->getUri(),'/locaux'),
+            'path'=>$request->getUri(),
             'owner'=>$owner
         ));
     }
@@ -195,7 +195,39 @@ class LocalController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('local_index',array('isUser'=>strpos($request->getUri(),'/locaux')));
+        return $this->redirectToRoute('local_index',array('path'=>$request->getUri(),'/locaux'));
+    }
+    public function uindexAction(Request $request)
+    {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+
+        $locals = $em->getRepository('LocataireBundle:Local')->findAll();
+
+        return $this->render('@Locataire/local/index.html.twig', array(
+            'locals' => $locals,'activeuser'=>$this->getUser(),
+            'path'=>$request->getUri()
+        ));
+
+    }
+
+    /**
+     * Finds and displays a local entity.
+     * @param Request $request
+     * @param Local $local
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function ushowAction(Request $request,Local $local)
+    {
+        $deleteForm = $this->createDeleteForm($local);
+        return $this->render('@Locataire/local/show.html.twig', array(
+            'local' => $local,
+            'delete_form' => $deleteForm->createView(),
+            'activeuser'=>$this->getUser(),
+            'path'=>$request->getUri()
+
+        ));
     }
 
     /**

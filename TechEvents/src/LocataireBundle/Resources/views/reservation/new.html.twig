@@ -1,14 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
-{% block content %}
-    <section >
-    <div >
-        <div >
+{% block body %}
+    <section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
     <h1>Reservation creation</h1>
         </div>
     </div>
     </section>
-<section >
+<section id="contact" class="wow fadeInUp">
 
     <div class="form">
     {{ form_start(form) }}
@@ -16,7 +16,15 @@
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
-            <a href="{{ path('reservation_index') }}">Back to the list</a>
+        {% if  '/locataire/local/' in path %}
+            <a href="{{ path('lreservation_index') }}"><b>Back to the Reservation list</b></a>
+        {% elseif '/locataire/reservation/' in path  %}
+            <a href="{{ path('reservation_index') }}"><b>Back to the Reservation list</b></a>
+        {% else %}
+            <a href="{{ path('ureservation_index') }}"><b>Back to the Reservation list</b></a>
+        {% endif %}
+        <br><a href="{{ path('ulocal_index') }}"><b>See more venues</b></a>
+
     </div>
 </section>
 {% endblock %}

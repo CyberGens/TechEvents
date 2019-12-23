@@ -1,20 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 
-{% block content %}
-<section >
-    <div>
-        <div >
+{% block body %}
+<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
             <h1><span>Local </span>{{ local.name }}</h1>
         </div>
     </div>
 </section>
-    <section>
+    <section id="venue" class="wow fadeInUp">
         
-    <div >
-        <div >
-            <div >
-                <div>
-                    <div >
+    <div class="form">
+        <div class="container-fluid venue-gallery-container">
+            <div class="row no-gutters">
+                <div class="col-lg-4 col-md-4">
+                    <div class="venue-gallery">
     <table>
         <tbody>
 
@@ -27,12 +27,12 @@
                 <td>{{ local.address }}</td>
             </tr>
             <tr>
-                <th>Price</th>
-                <td>{{ local.price }}</td>
+                <th>Unitary Price</th>
+                <td>{{ local.price }} D.T</td>
             </tr>
             <tr>
                 <th>Surface</th>
-                <td>{{ local.surface }}</td>
+                <td>{{ local.surface }} m²</td>
             </tr>
             <tr>
                 <th>Capacity</th>
@@ -45,32 +45,32 @@
                     <b>To see the lodger info plz <a href="{{ path('fos_user_registration_register') }}">register</a></b>
                 </td>
             </tr>
-            {% elseif local.idUser!=activeuser.id%}
+            {% elseif local.idUser.id!=activeuser.id%}
             <tr>
                 <th>Lodger full name</th>
-                <td>{{ activeuser.firstname }} {{ activeuser.lastname }}</td>
+                <td>{{ local.idUser.firstname }} {{ local.idUser.lastname }}</td>
             </tr>
             <tr>
                 <th>Phone Number</th>
                 <td>
-                <a href="tel:{{activeuser.phoneNumber}}">{{activeuser.phoneNumber}}</a>
+                <a href="tel:{{local.idUser.phoneNumber}}">{{local.idUser.phoneNumber}}</a>
                 </td>
             </tr>
             <tr>
                 <th>Email Address</th>
                 <td>
                             <i class="ion-ios-email-outline">
-                            <b><a href="mailto:{{ activeuser.email }}">{{ activeuser.email }}</a></b></i>
+                            <b><a href="mailto:{{ local.idUser.email }}">{{ local.idUser.email }}</a></b></i>
                 </td>
             </tr>
             {% endif %}
 
             <tr>
                 <th></th>
-                <td><div c>
+                <td><div class="contact-info">
                         <br><br>
                         {% if activeuser != null %}
-                    {% if activeuser.id==local.idUser %}
+                    {% if activeuser.id==local.idUser.id %}
                         {{ form_start(delete_form) }}
                         <button type="submit" value="Delete"><b>Delete</b></button>
                         {{ form_end(delete_form) }}
@@ -86,12 +86,12 @@
             <tr>
                 <th></th>
                 <td>
-                    <div >
-                    {% if isUser>0 %}
+                    <div class="contact-info">
+                        {% if  '/locaux' in path %}
                         <a href="{{ path('ulocal_index') }}"><b>Back to the list</b></a><br>
                     {% else %}
                         <a href="{{ path('local_index') }}"><b>Back to the list</b></a><br>
-                        <a href="{{ path('reservation_index',{ 'idLoc': local.idLoc }) }}"><b>Show this Venue's Reservation</b></a><br>
+                        <a href="{{ path('lreservation_index',{ 'idLoc': local.idLoc }) }}"><b>Show this Venue's Reservation</b></a><br>
                     {% endif %}
                         <a href="{{ path('local_show_geo',{ 'idLoc':local.idLoc}) }}" target="_blank"><b>Show GeoLocalisation</b></a><br>
                     </div>
@@ -103,8 +103,8 @@
     </table>
                     </div>
                 </div>
-                <div >
-                    <div >
+                <div class="col-lg-6 col-md-15">
+                    <div class="venue-gallery">
                         <a href="{{asset('uploads/images/' ~  local.img) }}" class="venobox" data-gall="venue-gallery">
                             <img src="{{asset('uploads/images/' ~  local.img) }}" alt="" class="img-fluid">
                         </a>

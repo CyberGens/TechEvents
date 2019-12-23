@@ -1,46 +1,111 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 
-{% block content %}
-    <section>
-        <div >
-            <div >
-                <h1>Reservation</h1>
+{% block body %}
+    <section id="intro">
+        <div class="intro-container wow fadeIn">
+            <div class="section-header">
+                <h1><span>Local </span>{{ reservation.idLocal.name }}</h1>
             </div>
         </div>
     </section>
-<section >
+    <section id="venue" class="wow fadeInUp">
 
-    <div >
-    <table>
-        <tbody>
-            <tr>
-                <th>Idreservation</th>
-                <td>{{ reservation.idReservation }}</td>
-            </tr>
-            <tr>
-                <th>Iduser</th>
-                <td>{{ reservation.idUser }}</td>
-            </tr>
-            <tr>
-                <th>Datefin</th>
-                <td>{% if reservation.dateFin %}{{ reservation.dateFin|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
-        <div class="align-content-center">
-            {% if  '/locataire/local/' in path %}
-        <a href="{{ path('lreservation_index') }}"><b>Back to the list</b></a>
-            {% elseif '/locataire/reservation/' in path  %}
-            <a href="{{ path('reservation_index') }}"><b>Back to the list</b></a>
-            {% else %}
-            <a href="{{ path('ureservation_index') }}"><b>Back to the list</b></a>
-            {% endif %}
+        <div class="form">
+            <div class="container-fluid venue-gallery-container">
+                <div class="row no-gutters">
+                    <div class="col-lg-4 col-md-4">
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="venue-gallery">
+                            <table>
+                                <tbody>
 
-            <a href="{{ path('reservation_edit', { 'idReservation': reservation.idReservation }) }}"><b>Edit</b></a>
-            {{ form_start(delete_form) }}
-        <button type="submit" value="Delete">Delete</button>
-            {{ form_end(delete_form) }}
+                                <tr>
+                                    <th>Venue's Name</th>
+                                    <td>{{ reservation.idLocal.name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ reservation.idLocal.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Price</th>
+                                    <td>{{ reservation.idLocal.price*nodays }} D.T</td>
+                                </tr>
+                                <tr>
+                                    <th>Date Debut</th>
+                                    <td>{{ reservation.dateDebut|date('Y-m-d') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date fin</th>
+                                    <td>{{ reservation.dateFin|date('Y-m-d') }}</td>
+                                </tr>
+                                {% if reservation.idUser.id==activeuser.id%}
+                                    <tr>
+                                        <th>Lodger full name</th>
+                                        <td>{{ reservation.idLocal.idUser.firstname }} {{ reservation.idLocal.idUser.lastname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td>
+                                            <a href="tel:{{reservation.idLocal.idUser.phoneNumber}}">{{reservation.idLocal.idUser.phoneNumber}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email Address</th>
+                                        <td>
+                                            <i class="ion-ios-email-outline">
+                                                <b><a href="mailto:{{ reservation.idLocal.idUser.email }}">{{ reservation.idLocal.idUser.email }}</a></b></i>
+                                        </td>
+                                    </tr>
+                                {% elseif reservation.idOwner.id==activeuser.id %}
+                                    <tr>
+                                        <th>Client full name</th>
+                                        <td>{{ reservation.idUser.firstname }} {{ reservation.idUser.lastname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td>
+                                            <a href="tel:{{reservation.idUser.phoneNumber}}">{{reservation.idUser.phoneNumber}}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email Address</th>
+                                        <td>
+                                            <i class="ion-ios-email-outline">
+                                                <b><a href="mailto:{{ reservation.idUser.email }}">{{ reservation.idUser.email }}</a></b></i>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <div class="contact-info">
+                                                <a href="{{ path('ulocal_index') }}"><b>Back to the list of venues</b></a><br>
+                                                <a href="
+{% if  '/locataire/local/reservation' in path %}
+{{ path('lreservation_index',{'idLoc':reservation.idLocal.idLoc}) }}
+{% elseif '/locataire/reservation' in path %}
+{{ path('reservation_index') }}
+{% else %}
+{{ path('ureservation_index') }}
+{% endif %}
+                                                        "><b>Back to the list of Reservations</b></a><br>
+                                                <a href="{{ path('ulocal_show',{ 'idLoc': reservation.idLocal.idLoc }) }}"><b>Show more details about this venue</b></a><br>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</section>
+
+    </section>
+    <!--{render(controller('LocataireBundle:Local:map',{'x':local.x,'y':local.y}))}}-->
 {% endblock %}

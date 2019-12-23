@@ -24,7 +24,7 @@ class ReservationController extends Controller
             return $this->render('@Locataire/Register.html.twig', array('url'=>$request->getUri()));
         }
 
-        else if(!in_array('ROLE_LODGER', $this->getUser()->getRoles())){
+        else if(!in_array('ROLE_LOCATAIRE', $this->getUser()->getRoles())){
             return $this->render('@Locataire/AccessDenied.html.twig',array('url'=>$request->getUri()));
         }
         $em = $this->getDoctrine()->getManager();
@@ -33,10 +33,38 @@ class ReservationController extends Controller
 
         return $this->render('@Locataire/reservation/index.html.twig', array(
             'reservations' => $reservations,
-            'isLocataire'=>strpos($request->getUri(),'/locataire')
+            'path'=> $request->getUri()
         ));
     }
+    public function lindexAction(Request $request,Local $local)
+    {
+        if( $this->getUser()==null ){
+            return $this->render('@Locataire/Register.html.twig', array('url'=>$request->getUri()));
+        }
 
+        else if(!in_array('ROLE_LOCATAIRE', $this->getUser()->getRoles())){
+            return $this->render('@Locataire/AccessDenied.html.twig',array('url'=>$request->getUri()));
+        }
+        $em = $this->getDoctrine()->getManager();
+
+        $reservations = $em->getRepository('LocataireBundle:Reservation')->findBy(array('idLocal'=>$local->getIdLoc()));
+
+        return $this->render('@Locataire/reservation/index.html.twig', array(
+            'reservations' => $reservations,
+            'path'=> $request->getUri()
+        ));
+    }
+    public function uindexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $reservations = $em->getRepository('LocataireBundle:Reservation')->findBy(array('idUser'=>$this->getUser()->getId()));
+
+        return $this->render('@Locataire/reservation/index.html.twig', array(
+            'reservations' => $reservations,
+            'path'=> $request->getUri(),
+        ));
+    }
     /**
      * Creates a new reservation entity.
      * @param Request $request
@@ -58,10 +86,8 @@ class ReservationController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $reservation->setIdLocal($local);
-            if(($this->getDoctrine()->getManager()->getRepository('LocataireBundle:Reservation')->FindBy(
-                array('idLocal'=>$reservation->getIdLocal(),
-                    'dateDebut'=>$reservation->getDateDebut()
-                ,'dateFin'=>$reservation->getDateFin()))==null))
+            $data = $this->getDoctrine()->getManager()->getRepository('LocataireBundle:Reservation')->findByRI($reservation);
+            if(($data==null))
             {
                     $em = $this->getDoctrine()->getManager();
                     $user = $em->getRepository('AppBundle:User')->findOneBy(array('id' => $local->getIdUser()));
@@ -73,13 +99,13 @@ class ReservationController extends Controller
 
                     return $this->redirectToRoute('reservation_show', array('idReservation' => $reservation->getIdReservation()));
                 }
-                else{ return $this->render('@Locataire/Register.html.twig', array('url'=>'this date is already booked'));}
+                else{ return $this->render('@Locataire/booked.html.twig', array('local'=>$local));}
                 }
 
         return $this->render('@Locataire/reservation/new.html.twig', array(
             'reservation' => $reservation,
             'form' => $form->createView(),
-            'activeid'=>$this->getUser()->getId()
+            'path'=>$request->getUri()
         ));
     }
 
@@ -97,11 +123,13 @@ class ReservationController extends Controller
             return $this->render('@Locataire/AccessDenied.html.twig',array('url'=>$request->getUri()));
         }
         $deleteForm = $this->createDeleteForm($reservation);
-
+        $interval = date_diff($reservation->getDateDebut(), $reservation->getDateFin());
         return $this->render('@Locataire/reservation/show.html.twig', array(
             'reservation' => $reservation,
             'delete_form' => $deleteForm->createView(),
-            'path'=>$request->getUri()
+            'path'=>$request->getUri(),
+            'activeuser'=>$this->getUser(),
+            'nodays'=>$interval->days+1,
         ));
     }
 
@@ -125,13 +153,20 @@ class ReservationController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('reservation_edit', array('idReservation' => $reservation->getIdreservation()));
+            $path=$request->getUri();
+            if(strpos($path,'/locataire/local/')>0)
+                return $this->redirectToRoute('lreservation_index',array('idLoc'=>$reservation->getIdLocal()->getIdLoc()));
+            elseif (strpos($path,'/locataire/reservation')>0)
+                return $this->redirectToRoute('reservation_index');
+            else
+                return $this->redirectToRoute('ureservation_index');
         }
 
         return $this->render('@Locataire/reservation/edit.html.twig', array(
             'reservation' => $reservation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'path'=>$request->getUri()
         ));
     }
 
@@ -156,8 +191,13 @@ class ReservationController extends Controller
             $em->remove($reservation);
             $em->flush();
         }
-
-        return $this->redirectToRoute('reservation_index');
+        $path=$request->getUri();
+        if(strpos($path,'/locataire/local/')>0)
+            return $this->redirectToRoute('lreservation_index',array('idLoc'=>$reservation->getIdLocal()->getIdLoc()));
+        elseif (strpos($path,'/locataire/reservation')>0)
+            return $this->redirectToRoute('reservation_index');
+        else
+            return $this->redirectToRoute('ureservation_index');
     }
 
     /**

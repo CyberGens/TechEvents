@@ -1,16 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
-{% block content %}
-<section>
-    <div >
-        <div >
+{% block body %}
+<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
     <h1>Local creation</h1>
         </div>
     </div>
 </section>
-<section >
+<section id="contact" class="wow fadeInUp">
 
-    <div >
+    <div class="form">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <div class="text-center"><button type="submit" value="Create">Create</button></div>

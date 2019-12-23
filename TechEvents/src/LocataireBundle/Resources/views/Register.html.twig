@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 
-{% block content %}
-<section>
-    <div>
-        <div>
+{% block body %}
+<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
             <h1><span>You need to be registred</span></h1>
             <p class="mb-4 pb-0"><b>you cannot access this URL:{{ url }}</b> </p>
             <a href="{{ path('locataire_homepage') }}"><b>Return</b></a>

@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
-{% block content %}
-<section>
+{% extends 'Bbase.html.twig' %}
+{% block body %}
+<section id="intro">
     <div class="intro-container wow fadeIn">
         <h1 class="mb-4 pb-0">Welcome To<br><span>Techevents</span></h1>
         <p class="mb-4 pb-0">hellooo guys </p>
@@ -11,10 +11,12 @@
     <div class="container-fluid venue-gallery-container">
         <div class="row no-gutters">
             <div class="col-lg-4 col-md-4">
+            </div>
+            <div class="col-lg-4 col-md-4">
                 <div class="venue-gallery">
-                    <a href="{{ path('reservation_index') }}"><b>mes reservation</b></a><br>
-                    <a href="{{ path('local_index') }}"><b>mes locaux</b></a><br>
-                    <a href="{{ path('ulocal_index') }}"><b>Voir des Locaux</b></a><br>
+                    <h3><a href="{{ path('reservation_index') }}"><b>mes reservation</b></a></h3><br>
+                    <h3><a href="{{ path('local_index') }}"><b>mes locaux</b></a></h3><br>
+                    <h3><a href="{{ path('ulocal_index') }}"><b>Voir des Locaux</b></a></h3><br>
                 </div>
             </div>
         </div>

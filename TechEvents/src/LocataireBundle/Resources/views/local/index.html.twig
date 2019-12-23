@@ -1,28 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 
-{% block content %}<section id="intro">
-    <div >
-        <div >
+{% block body %}<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
             <h1><span>Locals list</span></h1>
         </div>
     </div>
 </section>
-    <section>
+    <section id="contact" class="wow fadeInUp">
 
-        <div >
+        <div class="container">
 
     <table border="1">
         <thead>
             <tr>
-                <th><h4 ><b>Idloc</b></h4></th>
-                <th><h4 ><b>Iduser</b></h4></th>
-                <th><h4 ><b>Name</b></h4></th>
-                <th><h4 ><b>Address</b></h4></th>
-                <th><h4><b>Price</b></h4></th>
-                <th><h4 ><b>Surface</b></h4></th>
-                <th><h4 ><b>Capacity</b></h4></th>
-                <th><h4 ><b>Img</b></h4></th>
-                <th><h4 ><b>Actions</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Idloc</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Iduser</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Name</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Address</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Price</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Surface</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Capacity</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Img</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Actions</b></h4></th>
             </tr>
         </thead>
         <tbody>
@@ -40,8 +40,8 @@
                 <td>
                         <div class="text-center">
                             {% if activeuser!=null %}
-                            {% if activeuser.id==local.idUser %}
-                                {% if isUser >0 %}
+                            {% if activeuser.id==local.idUser.id %}
+                                {% if  '/locaux' in path %}
                             <a href="{{ path('ulocal_show', { 'idLoc': local.idLoc }) }}"><b>show</b></a><br>
                                     {% else %}
                                         <a href="{{ path('local_show', { 'idLoc': local.idLoc }) }}"><b>show</b></a><br>

@@ -16,9 +16,11 @@
                     <div id="logo" class="pull-left">
                         <!-- Uncomment below if you prefer to use a text logo -->
                         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+                        {% if app.user %}
                         <a href="#intro" class="scrollto">
-                            <img src="{{ asset('uploads/images/' ~  app.user.photo) }}"> {{ app.user.username }}
+                            <img src="{{ asset('uploads/images/' ~  app.user.photo) }}" height="50" width="50" alt="Avatar" style="border-radius :50%"> {{ app.user.username }}
                         </a>
+                        {% endif %}
 
 
                     <nav id="nav-menu-container">
@@ -28,10 +30,23 @@
                             <li><a href="{{ path('sponsorfile_showmine') }}">My Sponsor Application</a></li>
                             <li><a href="{{ path('eshop_homepage') }}">E-Shop</a></li>
                             <li><a href="{{ path('events_index') }}">Events</a></li>
-                            <li><a href="{{ path('ulocal_index') }}">Venues</a></li>
+                            <li><a href="{{ path('ulocal_index') }}">Venues</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ path('ulocal_index') }}">Venues</a></li>
+                                    <li><a href="{{ path("ureservation_index") }}">My Bookings</a></li>
+                                    {% if is_granted('ROLE_LOCATAIRE') %}
+                                        <li><a href="{{ path("local_index") }}">My venues</a></li>
+                                        <li><a href="{{ path("reservation_index") }}">My venues' bookings</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
                             <li><a href="{{ path('Reclamation_homepage') }}">Feedback</a></li>
                             <li><a href="{{ path('add_commentaire') }}">Comments</a></li>
+                            {% if app.user %}
                             <li class="buy-tickets"><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            {% else %}
+                            <li class="buy-tickets"><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                            {% endif %}
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div></div>

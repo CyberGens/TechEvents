@@ -1,14 +1,14 @@
 <?php
 
 namespace LocataireBundle\Entity;
-Use AppBundle\Entity\User;
+Use UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Reservation
  *
  * @ORM\Table(name="reservation", indexes={@ORM\Index(name="fk_res_loc", columns={"id_local"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="\LocataireBundle\Repository\ReservationRepository")
  */
 class Reservation
 {

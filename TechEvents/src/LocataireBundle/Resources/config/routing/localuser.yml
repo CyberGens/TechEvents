@@ -1,8 +1,8 @@
 ulocal_index:
   path:     /
-  defaults: { _controller: "LocataireBundle:UserLocal:index" }
+  defaults: { _controller: "LocataireBundle:Local:uindex" }
   methods:  GET
 ulocal_show:
     path:     /show/{idLoc}
-    defaults: { _controller: "LocataireBundle:UserLocal:show" }
+    defaults: { _controller: "LocataireBundle:Local:ushow" }
     methods:  GET

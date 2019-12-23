@@ -17,6 +17,9 @@ class User extends BaseUser
          * @ORM\Id
          * @ORM\Column(type="integer")
          * @ORM\GeneratedValue(strategy="AUTO")
+         * @ORM\OneToMany(targetEntity="src\LocataireBundle\Entity\Reservation", mappedBy="idOwner")
+         * @ORM\OneToMany(targetEntity="src\LocataireBundle\Entity\Reservation", mappedBy="idUser")
+         * @ORM\OneToMany(targetEntity="src\LocataireBundle\Entity\Local", mappedBy="idUser")
          */
     protected $id;
 

@@ -1,16 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 {% form_theme edit_form 'bootstrap_3_horizontal_layout.html.twig' %}
-{% block content %}
-<section>
-    <div >
-        <div >
+{% block body %}
+<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
             <h1>Reservation edit</h1>
         </div>
     </div>
 </section>
-<section>
+<section id="contact" class="wow fadeInUp">
 
-    <div >
+    <div class="form">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <div class="text-center"><Button type="submit" value="Edit"><b>Edit</b></Button>
@@ -20,6 +20,12 @@
         {{ form_start(delete_form) }}
         <button type="submit" value="Delete">Delete</button>
             {{ form_end(delete_form) }}
+            {% if  '/locataire/local/' in path %}
+                <a href="{{ path('ulocal_index') }}"><b>Create a new reservation</b></a>
+            {% else %}
+                <a href="{{ path('locataire_homepage') }}"><b>Return</b></a>
+            {% endif %}
+
             <a href="{{ path('reservation_index') }}"><b>Back to the list</b></a>
     </div>
     </div>

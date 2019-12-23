@@ -27,3 +27,6 @@ local_delete:
     path:     /{idLoc}/delete
     defaults: { _controller: "LocataireBundle:Local:delete" }
     methods:  DELETE
+local_reservation:
+    resource: "@LocataireBundle/Resources/config/routing/localreservation.yml"
+    prefix:   /reservation

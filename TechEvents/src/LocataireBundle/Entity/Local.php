@@ -23,9 +23,11 @@ class Local
     private $idLoc;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="Id_user", type="integer", nullable=false)
+     * @var \User
+     ** @ORM\ManyToOne(targetEntity="\UserBundle\Entity\User",inversedBy="id")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Id_user", referencedColumnName="id")
+     * })
      */
     private $idUser;
 
@@ -49,8 +51,7 @@ class Local
      * @ORM\Column(name="Ycord", type="float", nullable=false)
      */
 
-    private
-        $y;
+    private $y;
 
     /**
      * @var string

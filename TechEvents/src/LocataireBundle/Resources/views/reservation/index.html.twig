@@ -1,47 +1,67 @@
-{% extends 'base.html.twig' %}
+{% extends 'Bbase.html.twig' %}
 
-{% block content %}}<section >
-    <div>
-        <div >
+{% block body %}}<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <div class="section-header">
             <h1><span>Reservations list</span></h1>
         </div>
     </div>
 </section>
-<section >
+<section id="contact" class="wow fadeInUp">
 
-    <div >
+    <div class="form">
 
     <table border="1">
         <thead>
             <tr>
-                <th><h4 ><b>Idreservation</b></h4></th>
-                <th><h4 ><b>Iduser</b></h4></th>
-                <th><h4 ><b>Datefin</b></h4></th>
-                <th><h4 ><b>Actions</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Idreservation</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Date Debut</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Date fin</b></h4></th>
+                <th><h4 class="mb-0 pb-0"><b>Actions</b></h4></th>
             </tr>
         </thead>
         <tbody>
         {% for reservation in reservations %}
             <tr>
                 <td><a href="{{ path('reservation_show', { 'idReservation': reservation.idReservation }) }}"><b>{{ reservation.idReservation }}</b></a></td>
-                <td><b>{{ reservation.idUser }}</b></td>
-                <td><b>{% if reservation.dateFin %}{{ reservation.dateFin|date('Y-m-d') }}{% endif %}</b></td>
+                <td><b>{{ reservation.dateDebut|date('Y-m-d') }}</b></td>
+                <td><b>{{ reservation.dateFin|date('Y-m-d') }}</b></td>
                 <td>
 
                     <div class="text-center">
-                        <a href="{{ path('reservation_show', { 'idReservation': reservation.idReservation }) }}"><b>show</b></a>
+                        <a href="
+{% if  '/locataire/local/reservation' in path %}
+{{ path('lreservation_show', { 'idReservation': reservation.idReservation }) }}
+{% elseif '/locataire/reservation' in path %}
+{{ path('reservation_show', { 'idReservation': reservation.idReservation }) }}
+{% else %}
+{{ path('ureservation_show', { 'idReservation': reservation.idReservation }) }}
+{% endif %}
+                                "><b>show</b></a>
                         <br>
-                    <a href="{{ path('reservation_edit', { 'idReservation': reservation.idReservation }) }}"><b>edit</b></a>
+                    <a href="
+
+{% if  '/locataire/local/reservation' in path %}
+{{ path('lreservation_edit', { 'idReservation': reservation.idReservation }) }}
+{% elseif '/locataire/reservation' in path %}
+{{ path('reservation_edit', { 'idReservation': reservation.idReservation }) }}
+{% else %}
+{{ path('ureservation_edit', { 'idReservation': reservation.idReservation }) }}
+{% endif %}
+
+                            "><b>edit</b></a>
                     </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-        {% if not(isLocataire>0) %}
-        <a href="{{ path('ulocal_index') }}"><b>Create a new reservation</b></a>
+
+        {% if is_granted('ROLE_LOCATAIRE') %}
+            <a href="{{ path('locataire_homepage') }}"><b>Go back to homepage </b></a><br>
+            <a href="{{ path('ulocal_index') }}"><b>see more venues</b></a>
         {% else %}
-        <a href="{{ path('locataire_homepage') }}"><b>Return</b></a>
+            <a href="{{ path('ulocal_index') }}"><b>see more venues</b></a>
         {% endif %}
 
     </div>

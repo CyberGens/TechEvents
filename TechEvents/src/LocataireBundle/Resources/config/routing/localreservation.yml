@@ -1,18 +1,18 @@
 lreservation_index:
-    path:     /
-    defaults: { _controller: "LocataireBundle:LocalReservation:index" }
+    path:     /{idLoc}
+    defaults: { _controller: "LocataireBundle:Reservation:lindex" }
     methods:  GET
 
 lreservation_show:
     path:     /{idReservation}/show
-    defaults: { _controller: "LocataireBundle:LocalReservation:show" }
+    defaults: { _controller: "LocataireBundle:Reservation:show" }
     methods:  GET
 lreservation_edit:
     path:     /{idReservation}/edit
-    defaults: { _controller: "LocataireBundle:LocalReservation:edit" }
+    defaults: { _controller: "LocataireBundle:Reservation:edit" }
     methods:  [GET, POST]
 
 lreservation_delete:
     path:     /{idReservation}/delete
-    defaults: { _controller: "LocataireBundle:LocalReservation:delete" }
+    defaults: { _controller: "LocataireBundle:Reservation:delete" }
     methods:  DELETE
