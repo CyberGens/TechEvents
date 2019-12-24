@@ -8,3 +8,6 @@ locataire_homepage:
 locataire_reservation:
     resource: "@LocataireBundle/Resources/config/routing/reservation.yml"
     prefix:   /reservation
+webservice_locals:
+    path:     /wslocal
+    defaults: { _controller: LocataireBundle:WebService:allLocal }

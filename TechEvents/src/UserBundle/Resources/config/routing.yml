@@ -13,5 +13,10 @@ user_homepage:
 admin_homepage:
     path:     /admin
     defaults: { _controller: fos_user.profile.controller:adminAction }
+webservice_users:
+    path:     /wsusershowall
+    defaults: { _controller: UserBundle:WebService:allUsers }
+
+
 
 

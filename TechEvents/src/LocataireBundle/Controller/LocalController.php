@@ -34,7 +34,7 @@ class LocalController extends Controller
 
             return $this->render('@Locataire/local/index.html.twig', array(
                 'locals' => $locals, 'activeuser' => $this->getUser(),
-                'path'=>$request->getUri()
+                'path'=>$request->getUri(),
             ));
         }
 

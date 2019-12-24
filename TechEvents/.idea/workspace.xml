@@ -86,7 +86,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/symfony-api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,7 +142,6 @@
       <command value="php bin/console assets:install web" />
       <command value="s doctrine:generate:form UserBundle:SponsorFile" />
       <command value="php -d memory_limit=-1 composer.phar require knplabs/knp-snappy-bundle" />
-      <command value="s generate:controller" />
       <command value="c dum" />
       <command value="php -d memory_limit=-1 composer.phar update" />
       <command value="php -d memory_limit=-1 composer.phar require knplabs/knp-paginator-bundle" />
@@ -157,9 +156,11 @@
       <command value="s server:ru" />
       <command value="s cache:clear" />
       <command value="s doctrine:schema:update --force" />
-      <command value="s cache:clear " />
       <command value="s server:log" />
       <command value="s server:run" />
+      <command value="s generate:controller" />
+      <command value="s doctrine:generate:entity " />
+      <command value="s cache:clear " />
     </option>
   </component>
   <component name="RunDashboard">
@@ -208,7 +209,9 @@
       <workItem from="1577054428150" duration="695000" />
       <workItem from="1577055227900" duration="13000" />
       <workItem from="1577055321103" duration="2903000" />
-      <workItem from="1577088795330" duration="5596000" />
+      <workItem from="1577088795330" duration="5872000" />
+      <workItem from="1577106433960" duration="3702000" />
+      <workItem from="1577202392499" duration="6359000" />
     </task>
     <servers />
   </component>
