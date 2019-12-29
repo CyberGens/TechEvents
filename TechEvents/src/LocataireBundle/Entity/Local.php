@@ -26,7 +26,7 @@ class Local
      * @var \User
      ** @ORM\ManyToOne(targetEntity="\UserBundle\Entity\User",inversedBy="id")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="Id_user", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="Id_user", referencedColumnName="id", nullable=false)
      * })
      */
     private $idUser;

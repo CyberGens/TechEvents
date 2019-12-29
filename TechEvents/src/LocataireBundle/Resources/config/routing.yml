@@ -11,3 +11,19 @@ locataire_reservation:
 webservice_locals:
     path:     /wslocal
     defaults: { _controller: LocataireBundle:WebService:allLocal }
+webservice_reservations:
+    path:     /wsreservation
+    defaults: { _controller: LocataireBundle:WebService:allReservation }
+webservice_newLocal:
+    path:     /wsnewlocal
+    defaults: { _controller: LocataireBundle:WebService:newLocal }
+webservice_modifyLocal:
+    path:     /wsmodifylocal
+    defaults: { _controller: LocataireBundle:WebService:modifyLocal }
+webservice_uploadImage:
+    path:     /wsuploadimage
+    defaults: { _controller: LocataireBundle:WebService:uploadImage }
+webservice_newReservation:
+    path:     /wsnewreservation
+    defaults: { _controller: LocataireBundle:WebService:newReservation }
+

@@ -12,6 +12,7 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Form;
 import com.codename1.ui.TextField;
 import com.mycompany.myapp.entities.User;
+import gui.locataire.VenuesForm;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -22,6 +23,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  */
 public class LoginForm {
  Form f;
+ private static User currentUser;
   
     public LoginForm() {
         
@@ -41,10 +43,13 @@ public class LoginForm {
             {     
                 if(user.getUsername().equals(username.getText())&& ser.verify(password.getText(),user.getPassword())){
                     ok=true;
+                    currentUser=user;
+                    break;
                 }
             }
             if(ok)
             {
+            currentUser.setPassword(password.getText());
              HomeForm h=new HomeForm();
              h.getF().show();
             }
@@ -54,6 +59,14 @@ public class LoginForm {
         f.add(login);
         
         
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     public Form getF() {

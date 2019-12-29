@@ -158,13 +158,15 @@ class Reservation
         $this->idLocal = $idLocal;
     }
 
-
-
     public function __toString()
     {
         return "stringtrong";
     }
-
+    /*public function __construct()
+    {
+        $this->setDateDebut(new \DateTime("now"));
+        $this->getDateFin(new \DateTime("now"));
+    }*/
 
 }
 

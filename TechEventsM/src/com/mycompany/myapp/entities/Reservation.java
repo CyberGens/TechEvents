@@ -15,12 +15,12 @@ import java.util.Date;
 public class Reservation {
     private int idReservation;
 private User idOwner;
-private int idLoc;
+private Local idLoc;
 private User idUser;
 private Date dateDeb;
 private Date dateFin;
     
-    public Reservation(int idReservation, User idOwner, int idLoc, User idUser, Date dateDeb, Date dateFin) {
+    public Reservation(int idReservation, User idOwner, Local idLoc, User idUser, Date dateDeb, Date dateFin) {
         this.idReservation = idReservation;
         this.idOwner = idOwner;
         this.idLoc = idLoc;
@@ -29,13 +29,16 @@ private Date dateFin;
         this.dateFin = dateFin;
     }
 
-    public Reservation(User idOwner, int idLoc,User idUser,Date dateDeb, Date dateFin) {
+    public Reservation(User idOwner, Local idLoc,User idUser,Date dateDeb, Date dateFin) {
         this.idOwner = idOwner;
         this.idLoc = idLoc;
         this.idUser = idUser;
         this.dateDeb = dateDeb;
         this.dateFin = dateFin;
     }
+
+    public Reservation() {
+        }
     @Override
     public String toString() {
         return "ReservationLoc{" + "idReservation=" + idReservation + ", idOwner=" + idOwner + ", idLoc=" + idLoc + ", idUser=" + idUser + ", dateDeb=" + dateDeb + ", dateFin=" + dateFin + '}';
@@ -57,11 +60,11 @@ private Date dateFin;
         this.idOwner = idOwner;
     }
 
-    public int getIdLoc() {
+    public Local getIdLoc() {
         return idLoc;
     }
 
-    public void setIdLoc(int idLoc) {
+    public void setIdLoc(Local idLoc) {
         this.idLoc = idLoc;
     }
 

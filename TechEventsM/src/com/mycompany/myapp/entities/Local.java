@@ -10,7 +10,7 @@ package com.mycompany.myapp.entities;
  * @author Brahim
  */
 public class Local {
-    private int id;
+private int id;
 private User user;
 private String nom;
 private String adresse;
@@ -18,14 +18,18 @@ private float prix;
 private float surface;
 private int capacite;
 private String img;
+private float x;
+private float y;
 
-    public Local(String nom, String adresse, float prix, float surface, int capacite,String img) {
+    public Local(String nom, String adresse, float prix, float surface, int capacite,String img,float x,float y) {
         this.nom = nom;
         this.adresse = adresse;
         this.prix = prix;
         this.surface = surface;
         this.capacite = capacite;
         this.img=img;
+        this.x=x;
+        this.y=y;        
     }
 
     public Local(int id,User user, String nom, String adresse, float prix, float surface, int capacite,String img) {
@@ -122,6 +126,22 @@ private String img;
 
     public void setCapacite(int capacite) {
         this.capacite = capacite;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 
     @Override

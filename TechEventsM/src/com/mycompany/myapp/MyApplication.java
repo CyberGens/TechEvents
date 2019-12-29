@@ -23,6 +23,8 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.FlowLayout;
+import gui.locataire.GeoForm;
+import gui.locataire.VenuesForm;
 import gui.LoginForm;
 
 /**
@@ -32,7 +34,7 @@ import gui.LoginForm;
 public class MyApplication {
 
     private Form current;
-    private Resources theme;
+    private static Resources theme;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -67,6 +69,10 @@ public class MyApplication {
             
     LoginForm l=new LoginForm();
     l.getF().show();
+    //LocalForm lf= new VenuesForm();
+    //lf.getLocalForm().show();
+    //GeoForm gf=new GeoForm(1);
+    //gf.getMainForm().show();
     
     
     
@@ -82,6 +88,10 @@ public class MyApplication {
     }
     
     public void destroy() {
+    }
+
+    public static Resources getTheme() {
+        return theme;
     }
 
 }

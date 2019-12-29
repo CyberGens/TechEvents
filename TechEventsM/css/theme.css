@@ -1,0 +1,10 @@
+#Constants {
+    includeNativeBool: true; 
+}
+mycalender-day {
+
+border: 1px solid whitesmoke;
+color:orange;
+font-family:  "native:MainRegular";
+font-size: 7pt;
+}

@@ -4,7 +4,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Brahim/Documents/GitHub/TechEvents/TechEventsM/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Brahim/Documents/GitHub/TechEvents/TechEventsM/src/gui/locataire/AddVenueForm.java</file>
+            <file>file:/C:/Users/Brahim/Documents/GitHub/TechEvents/TechEventsM/src/gui/locataire/VenuesDetailsForm.java</file>
+            <file>file:/C:/Users/Brahim/Documents/GitHub/TechEvents/TechEventsM/src/gui/locataire/BookForm.java</file>
             <file>file:/C:/Users/Brahim/Documents/GitHub/TechEvents/TechEventsM/src/gui/LoginForm.java</file>
         </group>
     </open-files>

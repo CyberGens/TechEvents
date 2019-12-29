@@ -90,7 +90,7 @@ class ReservationController extends Controller
             if(($data==null))
             {
                     $em = $this->getDoctrine()->getManager();
-                    $user = $em->getRepository('AppBundle:User')->findOneBy(array('id' => $local->getIdUser()));
+                    $user = $em->getRepository('UserBundle:User')->findOneBy(array('id' => $local->getIdUser()));
                     $reservation->setIdLocal($local);
                     $reservation->setIdOwner($user);
                     $reservation->setIdUser($this->getUser());
@@ -151,15 +151,21 @@ class ReservationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $data = $this->getDoctrine()->getManager()->getRepository('LocataireBundle:Reservation')->findByRI($reservation);
+            if (($data == null)) {
+                $this->getDoctrine()->getManager()->flush();
 
-            $path=$request->getUri();
-            if(strpos($path,'/locataire/local/')>0)
-                return $this->redirectToRoute('lreservation_index',array('idLoc'=>$reservation->getIdLocal()->getIdLoc()));
-            elseif (strpos($path,'/locataire/reservation')>0)
-                return $this->redirectToRoute('reservation_index');
-            else
-                return $this->redirectToRoute('ureservation_index');
+                $path = $request->getUri();
+                if (strpos($path, '/locataire/local/') > 0)
+                    return $this->redirectToRoute('lreservation_index', array('idLoc' => $reservation->getIdLocal()->getIdLoc()));
+                elseif (strpos($path, '/locataire/reservation') > 0)
+                    return $this->redirectToRoute('reservation_index');
+                else
+                    return $this->redirectToRoute('ureservation_index');
+
+            }
+            else return $this->render('@Locataire/booked.html.twig', array('local'=>$local));
+
         }
 
         return $this->render('@Locataire/reservation/edit.html.twig', array(
