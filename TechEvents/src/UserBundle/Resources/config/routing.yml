@@ -16,6 +16,9 @@ admin_homepage:
 webservice_users:
     path:     /wsusershowall
     defaults: { _controller: UserBundle:WebService:allUsers }
+webservice_login:
+    path:     /wslogin
+    defaults: { _controller: UserBundle:WebService:login }
 
 
 

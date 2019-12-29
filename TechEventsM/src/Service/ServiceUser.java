@@ -78,7 +78,7 @@ public class ServiceUser {
     Boolean ok=false;
     ConnectionRequest con;
     public Boolean verify(String password,String hash){  
-        String url = "http://localhost/login.php";
+        String url = "http://localhost:8000/wslogin";
          ConnectionRequest con = new ConnectionRequest(url);
                        con.setPost(false);
                        con.addArgument("password", password);
